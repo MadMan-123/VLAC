@@ -1,0 +1,11 @@
+Adventure Forest 
+
+Version: 1.1
+
+1. Updates
+
+- Added colliders to all models/prefabs
+- Updated models (i.e scale, rotation, etc.)
+- Updated prefabs (i.e colliders, size, etc.)
+- Updated all demo scenes
+- Updated folders structure
