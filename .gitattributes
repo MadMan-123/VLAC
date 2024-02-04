@@ -5,3 +5,5 @@
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 *.unity filter=lfs diff=lfs merge=lfs -text
 *.prefab filter=lfs diff=lfs merge=lfs -text
+*.assets filter=lfs diff=lfs merge=lfs -text
+VulkanBuild/FPSDemo_Data/globalgamemanagers.assets filter=lfs diff=lfs merge=lfs -text
