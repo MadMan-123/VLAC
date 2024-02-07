@@ -1,0 +1,1337 @@
+[33mcommit 3a5d399851dbe50aa0fab941eeac139925fce05c[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: MadMan-123 <madocwolstencroft@gmail.com>
+Date:   Sun Feb 4 23:56:03 2024 +0000
+
+    deleted the vulkan build dir
+
+ .gitattributes                                     |     2 [32m+[m
+ VulkanBuild/FPSDemo.exe                            |   Bin [31m666624[m -> [32m0[m bytes
+ .../Data/Plugins/x86_64/lib_burst_generated.txt    |   144 [31m-[m
+ .../FPSDemo_Data/Managed/Assembly-CSharp.dll       |   Bin [31m9728[m -> [32m0[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/Cinemachine.dll   |   Bin [31m309248[m -> [32m0[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/Mono.Security.dll |   Bin [31m241152[m -> [32m0[m bytes
+ .../Managed/System.ComponentModel.Composition.dll  |   Bin [31m257024[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/System.Configuration.dll  |   Bin [31m124928[m -> [32m0[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/System.Core.dll   |   Bin [31m1113088[m -> [32m0[m bytes
+ .../Managed/System.Data.DataSetExtensions.dll      |   Bin [31m29696[m -> [32m0[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/System.Data.dll   |   Bin [31m2118656[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/System.Drawing.dll        |   Bin [31m489984[m -> [32m0[m bytes
+ .../Managed/System.EnterpriseServices.dll          |   Bin [31m44544[m -> [32m0[m bytes
+ .../Managed/System.IO.Compression.FileSystem.dll   |   Bin [31m18432[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/System.IO.Compression.dll |   Bin [31m114688[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/System.Net.Http.dll       |   Bin [31m121344[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/System.Numerics.dll       |   Bin [31m119296[m -> [32m0[m bytes
+ .../Managed/System.Runtime.Serialization.dll       |   Bin [31m934400[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/System.Runtime.dll        |   Bin [31m12288[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/System.Security.dll       |   Bin [31m320000[m -> [32m0[m bytes
+ .../Managed/System.ServiceModel.Internals.dll      |   Bin [31m215040[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/System.Transactions.dll   |   Bin [31m35328[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/System.Xml.Linq.dll       |   Bin [31m136704[m -> [32m0[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/System.Xml.dll    |   Bin [31m3160064[m -> [32m0[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/System.dll        |   Bin [31m2637824[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/Unity.Burst.Unsafe.dll    |   Bin [31m5632[m -> [32m0[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/Unity.Burst.dll   |   Bin [31m316416[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/Unity.Mathematics.dll     |   Bin [31m741376[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/Unity.ProBuilder.Csg.dll  |   Bin [31m18944[m -> [32m0[m bytes
+ .../Managed/Unity.ProBuilder.KdTree.dll            |   Bin [31m20992[m -> [32m0[m bytes
+ .../Managed/Unity.ProBuilder.Poly2Tri.dll          |   Bin [31m39936[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/Unity.ProBuilder.Stl.dll  |   Bin [31m14336[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/Unity.ProBuilder.dll      |   Bin [31m404480[m -> [32m0[m bytes
+ .../Managed/Unity.RenderPipelines.Core.Runtime.dll |   Bin [31m522752[m -> [32m0[m bytes
+ .../Unity.RenderPipelines.Core.ShaderLibrary.dll   |   Bin [31m4608[m -> [32m0[m bytes
+ ...nderPipelines.HighDefinition.Config.Runtime.dll |   Bin [31m6144[m -> [32m0[m bytes
+ ...nity.RenderPipelines.HighDefinition.Runtime.dll |   Bin [31m4801024[m -> [32m0[m bytes
+ ...derPipelines.ShaderGraph.ShaderGraphLibrary.dll |   Bin [31m4608[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/Unity.TextMeshPro.dll     |   Bin [31m380416[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/Unity.Timeline.dll        |   Bin [31m127488[m -> [32m0[m bytes
+ .../Managed/Unity.VisualEffectGraph.Runtime.dll    |   Bin [31m100352[m -> [32m0[m bytes
+ .../Unity.VisualScripting.Antlr3.Runtime.dll       |   Bin [31m86016[m -> [32m0[m bytes
+ .../Managed/Unity.VisualScripting.Core.dll         |   Bin [31m623616[m -> [32m0[m bytes
+ .../Managed/Unity.VisualScripting.Flow.dll         |   Bin [31m400896[m -> [32m0[m bytes
+ .../Managed/Unity.VisualScripting.State.dll        |   Bin [31m32256[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.AIModule.dll  |   Bin [31m57880[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.ARModule.dll  |   Bin [31m21016[m -> [32m0[m bytes
+ .../Managed/UnityEngine.AccessibilityModule.dll    |   Bin [31m23576[m -> [32m0[m bytes
+ .../Managed/UnityEngine.AndroidJNIModule.dll       |   Bin [31m92696[m -> [32m0[m bytes
+ .../Managed/UnityEngine.AnimationModule.dll        |   Bin [31m163864[m -> [32m0[m bytes
+ .../Managed/UnityEngine.AssetBundleModule.dll      |   Bin [31m32792[m -> [32m0[m bytes
+ .../Managed/UnityEngine.AudioModule.dll            |   Bin [31m70680[m -> [32m0[m bytes
+ .../Managed/UnityEngine.ClothModule.dll            |   Bin [31m26136[m -> [32m0[m bytes
+ .../Managed/UnityEngine.ClusterInputModule.dll     |   Bin [31m21528[m -> [32m0[m bytes
+ .../Managed/UnityEngine.ClusterRendererModule.dll  |   Bin [31m22040[m -> [32m0[m bytes
+ .../Managed/UnityEngine.ContentLoadModule.dll      |   Bin [31m26648[m -> [32m0[m bytes
+ .../Managed/UnityEngine.CoreModule.dll             |   Bin [31m1371672[m -> [32m0[m bytes
+ .../Managed/UnityEngine.CrashReportingModule.dll   |   Bin [31m21016[m -> [32m0[m bytes
+ .../Managed/UnityEngine.DSPGraphModule.dll         |   Bin [31m29208[m -> [32m0[m bytes
+ .../Managed/UnityEngine.DirectorModule.dll         |   Bin [31m24600[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.GIModule.dll  |   Bin [31m19992[m -> [32m0[m bytes
+ .../Managed/UnityEngine.GameCenterModule.dll       |   Bin [31m39960[m -> [32m0[m bytes
+ .../Managed/UnityEngine.GridModule.dll             |   Bin [31m25112[m -> [32m0[m bytes
+ .../Managed/UnityEngine.HotReloadModule.dll        |   Bin [31m19992[m -> [32m0[m bytes
+ .../Managed/UnityEngine.IMGUIModule.dll            |   Bin [31m189464[m -> [32m0[m bytes
+ .../Managed/UnityEngine.ImageConversionModule.dll  |   Bin [31m24088[m -> [32m0[m bytes
+ .../Managed/UnityEngine.InputLegacyModule.dll      |   Bin [31m38936[m -> [32m0[m bytes
+ .../Managed/UnityEngine.InputModule.dll            |   Bin [31m23576[m -> [32m0[m bytes
+ .../Managed/UnityEngine.JSONSerializeModule.dll    |   Bin [31m22040[m -> [32m0[m bytes
+ .../Managed/UnityEngine.LocalizationModule.dll     |   Bin [31m21016[m -> [32m0[m bytes
+ .../Managed/UnityEngine.NVIDIAModule.dll           |   Bin [31m33816[m -> [32m0[m bytes
+ .../Managed/UnityEngine.ParticleSystemModule.dll   |   Bin [31m156184[m -> [32m0[m bytes
+ .../UnityEngine.PerformanceReportingModule.dll     |   Bin [31m20504[m -> [32m0[m bytes
+ .../Managed/UnityEngine.Physics2DModule.dll        |   Bin [31m141336[m -> [32m0[m bytes
+ .../Managed/UnityEngine.PhysicsModule.dll          |   Bin [31m138264[m -> [32m0[m bytes
+ .../Managed/UnityEngine.ProfilerModule.dll         |   Bin [31m19992[m -> [32m0[m bytes
+ .../Managed/UnityEngine.PropertiesModule.dll       |   Bin [31m151576[m -> [32m0[m bytes
+ ...imeInitializeOnLoadManagerInitializerModule.dll |   Bin [31m19992[m -> [32m0[m bytes
+ .../Managed/UnityEngine.ScreenCaptureModule.dll    |   Bin [31m21016[m -> [32m0[m bytes
+ .../Managed/UnityEngine.SharedInternalsModule.dll  |   Bin [31m32792[m -> [32m0[m bytes
+ .../Managed/UnityEngine.SpriteMaskModule.dll       |   Bin [31m21528[m -> [32m0[m bytes
+ .../Managed/UnityEngine.SpriteShapeModule.dll      |   Bin [31m26136[m -> [32m0[m bytes
+ .../Managed/UnityEngine.StreamingModule.dll        |   Bin [31m20504[m -> [32m0[m bytes
+ .../Managed/UnityEngine.SubstanceModule.dll        |   Bin [31m24600[m -> [32m0[m bytes
+ .../Managed/UnityEngine.SubsystemsModule.dll       |   Bin [31m34840[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.TLSModule.dll |   Bin [31m26648[m -> [32m0[m bytes
+ .../Managed/UnityEngine.TerrainModule.dll          |   Bin [31m100888[m -> [32m0[m bytes
+ .../Managed/UnityEngine.TerrainPhysicsModule.dll   |   Bin [31m21016[m -> [32m0[m bytes
+ .../UnityEngine.TextCoreFontEngineModule.dll       |   Bin [31m72216[m -> [32m0[m bytes
+ .../UnityEngine.TextCoreTextEngineModule.dll       |   Bin [31m249880[m -> [32m0[m bytes
+ .../Managed/UnityEngine.TextRenderingModule.dll    |   Bin [31m38936[m -> [32m0[m bytes
+ .../Managed/UnityEngine.TilemapModule.dll          |   Bin [31m46616[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.UI.dll        |   Bin [31m264704[m -> [32m0[m bytes
+ .../Managed/UnityEngine.UIElementsModule.dll       |   Bin [31m1513496[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.UIModule.dll  |   Bin [31m36376[m -> [32m0[m bytes
+ .../Managed/UnityEngine.UmbraModule.dll            |   Bin [31m19992[m -> [32m0[m bytes
+ .../UnityEngine.UnityAnalyticsCommonModule.dll     |   Bin [31m21016[m -> [32m0[m bytes
+ .../Managed/UnityEngine.UnityAnalyticsModule.dll   |   Bin [31m44568[m -> [32m0[m bytes
+ .../Managed/UnityEngine.UnityConnectModule.dll     |   Bin [31m21528[m -> [32m0[m bytes
+ .../Managed/UnityEngine.UnityCurlModule.dll        |   Bin [31m21528[m -> [32m0[m bytes
+ .../UnityEngine.UnityTestProtocolModule.dll        |   Bin [31m19992[m -> [32m0[m bytes
+ ...nityEngine.UnityWebRequestAssetBundleModule.dll |   Bin [31m23064[m -> [32m0[m bytes
+ .../UnityEngine.UnityWebRequestAudioModule.dll     |   Bin [31m22552[m -> [32m0[m bytes
+ .../Managed/UnityEngine.UnityWebRequestModule.dll  |   Bin [31m57880[m -> [32m0[m bytes
+ .../UnityEngine.UnityWebRequestTextureModule.dll   |   Bin [31m21528[m -> [32m0[m bytes
+ .../UnityEngine.UnityWebRequestWWWModule.dll       |   Bin [31m31256[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.VFXModule.dll |   Bin [31m58392[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.VRModule.dll  |   Bin [31m26136[m -> [32m0[m bytes
+ .../Managed/UnityEngine.VehiclesModule.dll         |   Bin [31m24088[m -> [32m0[m bytes
+ .../Managed/UnityEngine.VideoModule.dll            |   Bin [31m40984[m -> [32m0[m bytes
+ .../Managed/UnityEngine.VirtualTexturingModule.dll |   Bin [31m35352[m -> [32m0[m bytes
+ .../Managed/UnityEngine.WindModule.dll             |   Bin [31m21016[m -> [32m0[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.XRModule.dll  |   Bin [31m70680[m -> [32m0[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/UnityEngine.dll   |   Bin [31m125464[m -> [32m0[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/mscorlib.dll      |   Bin [31m4631552[m -> [32m0[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/netstandard.dll   |   Bin [31m90112[m -> [32m0[m bytes
+ .../Plugins/x86_64/lib_burst_generated.dll         |   Bin [31m126976[m -> [32m0[m bytes
+ .../FPSDemo_Data/Resources/unity default resources |   Bin [31m1548352[m -> [32m0[m bytes
+ .../FPSDemo_Data/Resources/unity_builtin_extra     |   Bin [31m582148[m -> [32m0[m bytes
+ .../FPSDemo_Data/RuntimeInitializeOnLoads.json     |     1 [31m-[m
+ VulkanBuild/FPSDemo_Data/ScriptingAssemblies.json  |     1 [31m-[m
+ VulkanBuild/FPSDemo_Data/app.info                  |     2 [31m-[m
+ VulkanBuild/FPSDemo_Data/boot.config               |     5 [31m-[m
+ VulkanBuild/FPSDemo_Data/globalgamemanagers        |   Bin [31m173312[m -> [32m0[m bytes
+ .../FPSDemo_Data/globalgamemanagers.assets.resS    |   Bin [31m14366576[m -> [32m0[m bytes
+ VulkanBuild/FPSDemo_Data/level0                    |   Bin [31m66228[m -> [32m0[m bytes
+ VulkanBuild/FPSDemo_Data/resources.assets          |   Bin [31m619384[m -> [32m0[m bytes
+ VulkanBuild/FPSDemo_Data/resources.assets.resS     |   Bin [31m5250336[m -> [32m0[m bytes
+ VulkanBuild/FPSDemo_Data/resources.resource        |   Bin [31m1577888[m -> [32m0[m bytes
+ VulkanBuild/FPSDemo_Data/sharedassets0.assets      |   Bin [31m3655284[m -> [32m0[m bytes
+ VulkanBuild/FPSDemo_Data/sharedassets0.assets.resS |   Bin [31m4328096[m -> [32m0[m bytes
+ .../EmbedRuntime/MonoPosixHelper.dll               |   Bin [31m610840[m -> [32m0[m bytes
+ .../EmbedRuntime/mono-2.0-bdwgc.dll                |   Bin [31m7750168[m -> [32m0[m bytes
+ .../etc/mono/2.0/Browsers/Compat.browser           |    42 [31m-[m
+ .../etc/mono/2.0/DefaultWsdlHelpGenerator.aspx     |  1901 [31m---[m
+ .../MonoBleedingEdge/etc/mono/2.0/machine.config   |   280 [31m-[m
+ .../MonoBleedingEdge/etc/mono/2.0/settings.map     |    48 [31m-[m
+ .../MonoBleedingEdge/etc/mono/2.0/web.config       |   153 [31m-[m
+ .../etc/mono/4.0/Browsers/Compat.browser           |    42 [31m-[m
+ .../etc/mono/4.0/DefaultWsdlHelpGenerator.aspx     |  1901 [31m---[m
+ .../MonoBleedingEdge/etc/mono/4.0/machine.config   |   307 [31m-[m
+ .../MonoBleedingEdge/etc/mono/4.0/settings.map     |    48 [31m-[m
+ .../MonoBleedingEdge/etc/mono/4.0/web.config       |   252 [31m-[m
+ .../etc/mono/4.5/Browsers/Compat.browser           |    42 [31m-[m
+ .../etc/mono/4.5/DefaultWsdlHelpGenerator.aspx     |  1901 [31m---[m
+ .../MonoBleedingEdge/etc/mono/4.5/machine.config   |   310 [31m-[m
+ .../MonoBleedingEdge/etc/mono/4.5/settings.map     |    48 [31m-[m
+ .../MonoBleedingEdge/etc/mono/4.5/web.config       |   252 [31m-[m
+ VulkanBuild/MonoBleedingEdge/etc/mono/browscap.ini | 16979 [31m-------------------[m
+ VulkanBuild/MonoBleedingEdge/etc/mono/config       |    53 [31m-[m
+ .../MonoBleedingEdge/etc/mono/mconfig/config.xml   |   616 [31m-[m
+ VulkanBuild/UnityCrashHandler64.exe                |   Bin [31m1114136[m -> [32m0[m bytes
+ VulkanBuild/UnityPlayer.dll                        |   Bin [31m30706200[m -> [32m0[m bytes
+ 153 files changed, 2 insertions(+), 25328 deletions(-)
+
+[33mcommit 433908a3adc2f8ba680b6f3d280073460f555da8[m
+Author: MadMan-123 <madocwolstencroft@gmail.com>
+Date:   Sun Feb 4 23:44:52 2024 +0000
+
+    Fix
+
+ VulkanBuild/FPSDemo_Data/globalgamemanagers.assets | Bin [31m129406296[m -> [32m0[m bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+[33mcommit d994d219ce1a68f1d8854180d932070239aa53cf[m
+Author: MadMan-123 <madocwolstencroft@gmail.com>
+Date:   Sun Feb 4 23:37:44 2024 +0000
+
+    Initial commit
+
+ .gitattributes                                     |     7 [32m+[m
+ .gitignore                                         |    63 [32m+[m
+ .vsconfig                                          |     6 [32m+[m
+ Assets/Adaptive Performance.meta                   |     8 [32m+[m
+ .../AdaptivePerformanceGeneralSettings.asset       |    46 [32m+[m
+ .../AdaptivePerformanceGeneralSettings.asset.meta  |     8 [32m+[m
+ Assets/Adaptive Performance/Settings.meta          |     8 [32m+[m
+ .../Settings/Simulator Provider Settings.asset     |   315 [32m+[m
+ .../Simulator Provider Settings.asset.meta         |     8 [32m+[m
+ Assets/CameraView.renderTexture                    |    40 [32m+[m
+ Assets/CameraView.renderTexture.meta               |     8 [32m+[m
+ Assets/Default 1.asset                             |    22 [32m+[m
+ Assets/Default 1.asset.meta                        |     8 [32m+[m
+ Assets/Default.asset                               |    22 [32m+[m
+ Assets/Default.asset.meta                          |     8 [32m+[m
+ Assets/DizzyMedia.meta                             |     8 [32m+[m
+ Assets/DizzyMedia/Editor.meta                      |     8 [32m+[m
+ Assets/DizzyMedia/Editor/Resources.meta            |     9 [32m+[m
+ Assets/DizzyMedia/Editor/Resources/Asset_Circ.png  |     3 [32m+[m
+ .../Editor/Resources/Asset_Circ.png.meta           |   100 [32m+[m
+ Assets/DizzyMedia/Editor/Resources/Discord.png     |     3 [32m+[m
+ .../DizzyMedia/Editor/Resources/Discord.png.meta   |   121 [32m+[m
+ Assets/DizzyMedia/Editor/Resources/Docs.png        |     3 [32m+[m
+ Assets/DizzyMedia/Editor/Resources/Docs.png.meta   |   100 [32m+[m
+ Assets/DizzyMedia/Editor/Resources/Facebook.png    |     3 [32m+[m
+ .../DizzyMedia/Editor/Resources/Facebook.png.meta  |   100 [32m+[m
+ Assets/DizzyMedia/Editor/Resources/HeaderLogo.png  |     3 [32m+[m
+ .../Editor/Resources/HeaderLogo.png.meta           |   121 [32m+[m
+ Assets/DizzyMedia/Editor/Resources/Support.png     |     3 [32m+[m
+ .../DizzyMedia/Editor/Resources/Support.png.meta   |   100 [32m+[m
+ Assets/DizzyMedia/Editor/Resources/Twitter.png     |     3 [32m+[m
+ .../DizzyMedia/Editor/Resources/Twitter.png.meta   |   100 [32m+[m
+ Assets/DizzyMedia/Editor/Resources/YouTube.png     |     3 [32m+[m
+ .../DizzyMedia/Editor/Resources/YouTube.png.meta   |   100 [32m+[m
+ Assets/DizzyMedia/Editor/Scripts.meta              |     9 [32m+[m
+ Assets/DizzyMedia/Editor/Scripts/WelcomeScreen.cs  |   194 [32m+[m
+ .../Editor/Scripts/WelcomeScreen.cs.meta           |    12 [32m+[m
+ Assets/DizzyMedia/Resources.meta                   |     8 [32m+[m
+ Assets/DizzyMedia/Resources/Shaders.meta           |     8 [32m+[m
+ .../DizzyMedia/Resources/Shaders/Double Sided.meta |     8 [32m+[m
+ .../Shaders/Double Sided/Standard_Two_Sided.shader |   332 [32m+[m
+ .../Double Sided/Standard_Two_Sided.shader.meta    |     9 [32m+[m
+ Assets/DizzyMedia/Resources/Skyboxs.meta           |     8 [32m+[m
+ Assets/DizzyMedia/Resources/Skyboxs/Sunny Day.meta |     8 [32m+[m
+ .../Resources/Skyboxs/Sunny Day/Back.png           |     3 [32m+[m
+ .../Resources/Skyboxs/Sunny Day/Back.png.meta      |   121 [32m+[m
+ .../Resources/Skyboxs/Sunny Day/Down.png           |     3 [32m+[m
+ .../Resources/Skyboxs/Sunny Day/Down.png.meta      |   121 [32m+[m
+ .../Resources/Skyboxs/Sunny Day/Front.png          |     3 [32m+[m
+ .../Resources/Skyboxs/Sunny Day/Front.png.meta     |   121 [32m+[m
+ .../Resources/Skyboxs/Sunny Day/Left.png           |     3 [32m+[m
+ .../Resources/Skyboxs/Sunny Day/Left.png.meta      |   121 [32m+[m
+ .../Resources/Skyboxs/Sunny Day/Right.png          |     3 [32m+[m
+ .../Resources/Skyboxs/Sunny Day/Right.png.meta     |   121 [32m+[m
+ .../Resources/Skyboxs/Sunny Day/SkyDay.mat         |   108 [32m+[m
+ .../Resources/Skyboxs/Sunny Day/SkyDay.mat.meta    |     8 [32m+[m
+ .../DizzyMedia/Resources/Skyboxs/Sunny Day/Up.png  |     3 [32m+[m
+ .../Resources/Skyboxs/Sunny Day/Up.png.meta        |   121 [32m+[m
+ Assets/DizzyMedia/_Assets.meta                     |     8 [32m+[m
+ .../_Assets/LP Sets_AdventureForest.meta           |     8 [32m+[m
+ .../_Assets/LP Sets_AdventureForest/Docs.meta      |     8 [32m+[m
+ .../LP Sets_AdventureForest/Docs/Changelog.txt     |    11 [32m+[m
+ .../Docs/Changelog.txt.meta                        |     7 [32m+[m
+ .../LP Sets_AdventureForest/Docs/Instructions.txt  |     1 [32m+[m
+ .../Docs/Instructions.txt.meta                     |     7 [32m+[m
+ .../_Assets/LP Sets_AdventureForest/Models.meta    |     8 [32m+[m
+ .../Models/Environment.meta                        |     8 [32m+[m
+ .../Models/Environment/Foliage.fbx                 |     3 [32m+[m
+ .../Models/Environment/Foliage.fbx.meta            |   259 [32m+[m
+ .../Models/Environment/Grass Variant.prefab        |     3 [32m+[m
+ .../Models/Environment/Grass Variant.prefab.meta   |     7 [32m+[m
+ .../Models/Environment/Grass.fbx                   |     3 [32m+[m
+ .../Models/Environment/Grass.fbx.meta              |   115 [32m+[m
+ .../Models/Environment/Materials.meta              |     8 [32m+[m
+ .../Models/Environment/Materials/Floor.mat         |   319 [32m+[m
+ .../Models/Environment/Materials/Floor.mat.meta    |     8 [32m+[m
+ .../Models/Environment/Materials/Green_Dark.mat    |   319 [32m+[m
+ .../Environment/Materials/Green_Dark.mat.meta      |     8 [32m+[m
+ .../Models/Environment/Materials/Green_Light.mat   |   319 [32m+[m
+ .../Environment/Materials/Green_Light.mat.meta     |     8 [32m+[m
+ .../Models/Environment/Materials/Grey.mat          |   319 [32m+[m
+ .../Models/Environment/Materials/Grey.mat.meta     |     8 [32m+[m
+ .../Models/Environment/Materials/Rock.mat          |   319 [32m+[m
+ .../Models/Environment/Materials/Rock.mat.meta     |     8 [32m+[m
+ .../Models/Environment/Materials/Sandy.mat         |   319 [32m+[m
+ .../Models/Environment/Materials/Sandy.mat.meta    |     8 [32m+[m
+ .../Models/Environment/Materials/Wood.mat          |   319 [32m+[m
+ .../Models/Environment/Materials/Wood.mat.meta     |     8 [32m+[m
+ .../LP Sets_AdventureForest/Models/Props.meta      |     8 [32m+[m
+ .../LP Sets_AdventureForest/Models/Props/Flag.fbx  |     3 [32m+[m
+ .../Models/Props/Flag.fbx.meta                     |   145 [32m+[m
+ .../Models/Props/Materials.meta                    |     8 [32m+[m
+ .../Models/Props/Materials/Black Double Sided.mat  |    81 [32m+[m
+ .../Props/Materials/Black Double Sided.mat.meta    |     8 [32m+[m
+ .../Models/Props/Materials/Black.mat               |   323 [32m+[m
+ .../Models/Props/Materials/Black.mat.meta          |     8 [32m+[m
+ .../Models/Props/Materials/Blue Double Sided.mat   |    77 [32m+[m
+ .../Props/Materials/Blue Double Sided.mat.meta     |     8 [32m+[m
+ .../Models/Props/Materials/Blue.mat                |   319 [32m+[m
+ .../Models/Props/Materials/Blue.mat.meta           |     8 [32m+[m
+ .../Models/Props/Materials/Grey.mat                |   319 [32m+[m
+ .../Models/Props/Materials/Grey.mat.meta           |     8 [32m+[m
+ .../Models/Props/Materials/Peach.mat               |   319 [32m+[m
+ .../Models/Props/Materials/Peach.mat.meta          |     8 [32m+[m
+ .../Models/Props/Materials/Red Double Sided.mat    |    77 [32m+[m
+ .../Props/Materials/Red Double Sided.mat.meta      |     8 [32m+[m
+ .../Models/Props/Materials/Red.mat                 |   319 [32m+[m
+ .../Models/Props/Materials/Red.mat.meta            |     8 [32m+[m
+ .../Models/Props/Materials/Sandy Double Sided.mat  |    77 [32m+[m
+ .../Props/Materials/Sandy Double Sided.mat.meta    |     8 [32m+[m
+ .../Models/Props/Materials/Sandy.mat               |   319 [32m+[m
+ .../Models/Props/Materials/Sandy.mat.meta          |     8 [32m+[m
+ .../Models/Props/Materials/Yellow.mat              |   319 [32m+[m
+ .../Models/Props/Materials/Yellow.mat.meta         |     8 [32m+[m
+ .../LP Sets_AdventureForest/Models/Props/Tent.fbx  |     3 [32m+[m
+ .../Models/Props/Tent.fbx.meta                     |    97 [32m+[m
+ .../_Assets/LP Sets_AdventureForest/Packs.meta     |     8 [32m+[m
+ .../LPS Adv Forest Standard.unitypackage.meta      |     7 [32m+[m
+ .../Packs/LPS Adv Forest URP.unitypackage.meta     |     7 [32m+[m
+ .../_Assets/LP Sets_AdventureForest/Prefabs.meta   |     8 [32m+[m
+ .../Prefabs/Environment.meta                       |     8 [32m+[m
+ .../Prefabs/Environment/Bushes.meta                |     8 [32m+[m
+ .../Prefabs/Environment/Bushes/Bush 1.prefab       |     3 [32m+[m
+ .../Prefabs/Environment/Bushes/Bush 1.prefab.meta  |     7 [32m+[m
+ .../Prefabs/Environment/Bushes/Bush 2.prefab       |     3 [32m+[m
+ .../Prefabs/Environment/Bushes/Bush 2.prefab.meta  |     7 [32m+[m
+ .../Prefabs/Environment/Grass.meta                 |     8 [32m+[m
+ .../Prefabs/Environment/Grass/Grass_Holder.prefab  |     3 [32m+[m
+ .../Environment/Grass/Grass_Holder.prefab.meta     |     7 [32m+[m
+ .../Prefabs/Environment/Rest Areas.meta            |     8 [32m+[m
+ .../Environment/Rest Areas/Rest Area.prefab        |     3 [32m+[m
+ .../Environment/Rest Areas/Rest Area.prefab.meta   |     7 [32m+[m
+ .../Prefabs/Environment/Rocks.meta                 |     8 [32m+[m
+ .../Prefabs/Environment/Rocks/Rock.prefab          |     3 [32m+[m
+ .../Prefabs/Environment/Rocks/Rock.prefab.meta     |     7 [32m+[m
+ .../Prefabs/Environment/Trees.meta                 |     8 [32m+[m
+ .../Prefabs/Environment/Trees/Tree 1.prefab        |     3 [32m+[m
+ .../Prefabs/Environment/Trees/Tree 1.prefab.meta   |     7 [32m+[m
+ .../Prefabs/Environment/Trees/Tree 2.prefab        |     3 [32m+[m
+ .../Prefabs/Environment/Trees/Tree 2.prefab.meta   |     7 [32m+[m
+ .../Prefabs/Environment/Trees/Tree 3.prefab        |     3 [32m+[m
+ .../Prefabs/Environment/Trees/Tree 3.prefab.meta   |     7 [32m+[m
+ .../LP Sets_AdventureForest/Prefabs/Props.meta     |     8 [32m+[m
+ .../Prefabs/Props/Flags.meta                       |     8 [32m+[m
+ .../Prefabs/Props/Flags/Flag_Blue.prefab           |     3 [32m+[m
+ .../Prefabs/Props/Flags/Flag_Blue.prefab.meta      |     7 [32m+[m
+ .../Prefabs/Props/Flags/Flag_Blue_Black.prefab     |     3 [32m+[m
+ .../Props/Flags/Flag_Blue_Black.prefab.meta        |     7 [32m+[m
+ .../Prefabs/Props/Flags/Flag_Red.prefab            |     3 [32m+[m
+ .../Prefabs/Props/Flags/Flag_Red.prefab.meta       |     7 [32m+[m
+ .../Prefabs/Props/Flags/Flag_Red_Black.prefab      |     3 [32m+[m
+ .../Prefabs/Props/Flags/Flag_Red_Black.prefab.meta |     7 [32m+[m
+ .../Prefabs/Props/Tents.meta                       |     8 [32m+[m
+ .../Prefabs/Props/Tents/Tent_Black_Blue.prefab     |     3 [32m+[m
+ .../Props/Tents/Tent_Black_Blue.prefab.meta        |     7 [32m+[m
+ .../Prefabs/Props/Tents/Tent_Black_Red.prefab      |     3 [32m+[m
+ .../Prefabs/Props/Tents/Tent_Black_Red.prefab.meta |     7 [32m+[m
+ .../Prefabs/Props/Tents/Tent_Blue_Red.prefab       |     3 [32m+[m
+ .../Prefabs/Props/Tents/Tent_Blue_Red.prefab.meta  |     7 [32m+[m
+ .../Prefabs/Props/Tents/Tent_Blue_Sandy.prefab     |     3 [32m+[m
+ .../Props/Tents/Tent_Blue_Sandy.prefab.meta        |     7 [32m+[m
+ .../Prefabs/Props/Tents/Tent_Red_Sandy.prefab      |     3 [32m+[m
+ .../Prefabs/Props/Tents/Tent_Red_Sandy.prefab.meta |     7 [32m+[m
+ .../_Assets/LP Sets_AdventureForest/Resources.meta |     8 [32m+[m
+ .../LP Sets_AdventureForest/Resources/Audio.meta   |     8 [32m+[m
+ .../Resources/Audio/EveningBirds.wav               |     3 [32m+[m
+ .../Resources/Audio/EveningBirds.wav.meta          |    22 [32m+[m
+ .../Resources/Post Processing.meta                 |     8 [32m+[m
+ .../Resources/Post Processing/LPS_AdvForest.asset  |  1499 [32m++[m
+ .../Post Processing/LPS_AdvForest.asset.meta       |     8 [32m+[m
+ .../Resources/Post Processing/LPS_AdvForest2.asset |  1499 [32m++[m
+ .../Post Processing/LPS_AdvForest2.asset.meta      |     8 [32m+[m
+ .../_Assets/LP Sets_AdventureForest/Scenes.meta    |     8 [32m+[m
+ .../Scenes/LP Sets_AdvForest.meta                  |     8 [32m+[m
+ .../Scenes/LP Sets_AdvForest.unity                 |     3 [32m+[m
+ .../Scenes/LP Sets_AdvForest.unity.meta            |     7 [32m+[m
+ .../LP Sets_AdvForest/OcclusionCullingData.asset   |  1010 [32m++[m
+ .../OcclusionCullingData.asset.meta                |     8 [32m+[m
+ .../Scenes/LP Sets_AdvForest_Layout.unity          |     3 [32m+[m
+ .../Scenes/LP Sets_AdvForest_Layout.unity.meta     |     7 [32m+[m
+ .../Scenes/LP Sets_AdvForest_Single.unity          |     3 [32m+[m
+ .../Scenes/LP Sets_AdvForest_Single.unity.meta     |     7 [32m+[m
+ .../_Assets/LP Sets_AdventureForest/Scripts.meta   |     8 [32m+[m
+ .../LP Sets_AdventureForest/Scripts/Editor.meta    |     8 [32m+[m
+ .../Scripts/Editor/LPS_AdvForest_Welcome.cs        |   220 [32m+[m
+ .../Scripts/Editor/LPS_AdvForest_Welcome.cs.meta   |    11 [32m+[m
+ .../Scripts/Editor/Resources.meta                  |     8 [32m+[m
+ .../Scripts/Editor/Resources/EditorContent.meta    |     8 [32m+[m
+ .../Resources/EditorContent/LPS_AdvForest-Logo.png |     3 [32m+[m
+ .../EditorContent/LPS_AdvForest-Logo.png.meta      |   128 [32m+[m
+ Assets/DizzyMedia/_Utilities.meta                  |     8 [32m+[m
+ Assets/DizzyMedia/_Utilities/Camera.meta           |     8 [32m+[m
+ .../DizzyMedia/_Utilities/Camera/ExtendedFlycam.cs |    72 [32m+[m
+ .../_Utilities/Camera/ExtendedFlycam.cs.meta       |    11 [32m+[m
+ Assets/Grass.jpg                                   |     3 [32m+[m
+ Assets/Grass.jpg.meta                              |   140 [32m+[m
+ Assets/Gun.fbx                                     |     3 [32m+[m
+ Assets/Gun.fbx.meta                                |   109 [32m+[m
+ Assets/HDRPDefaultResources.meta                   |     8 [32m+[m
+ .../HDRenderPipelineAsset.asset                    |   494 [32m+[m
+ .../HDRenderPipelineAsset.asset.meta               |     8 [32m+[m
+ Assets/HeadbobNoise.asset                          |    28 [32m+[m
+ Assets/HeadbobNoise.asset.meta                     |     8 [32m+[m
+ Assets/Lamp Variant.prefab                         |     3 [32m+[m
+ Assets/Lamp Variant.prefab.meta                    |     7 [32m+[m
+ Assets/Lamp.fbx                                    |     3 [32m+[m
+ Assets/Lamp.fbx.meta                               |   109 [32m+[m
+ Assets/Lamp.prefab                                 |     3 [32m+[m
+ Assets/Lamp.prefab.meta                            |     7 [32m+[m
+ Assets/New Material.mat                            |   276 [32m+[m
+ Assets/New Material.mat.meta                       |     8 [32m+[m
+ Assets/New Terrain.asset                           |   Bin [31m0[m -> [32m3357352[m bytes
+ Assets/New Terrain.asset.meta                      |     8 [32m+[m
+ Assets/NewBrush.brush                              |    43 [32m+[m
+ Assets/NewBrush.brush.meta                         |     8 [32m+[m
+ Assets/NewLayer 1.terrainlayer                     |    22 [32m+[m
+ Assets/NewLayer 1.terrainlayer.meta                |     8 [32m+[m
+ Assets/NewLayer.terrainlayer                       |    22 [32m+[m
+ Assets/NewLayer.terrainlayer.meta                  |     8 [32m+[m
+ Assets/Out.mat                                     |   115 [32m+[m
+ Assets/Out.mat.meta                                |     8 [32m+[m
+ Assets/OutdoorsScene.meta                          |     8 [32m+[m
+ Assets/OutdoorsScene.unity                         |     3 [32m+[m
+ Assets/OutdoorsScene.unity.meta                    |     7 [32m+[m
+ Assets/OutdoorsScene/Sky and Fog Settings 1.asset  |   271 [32m+[m
+ .../Sky and Fog Settings 1.asset.meta              |     8 [32m+[m
+ Assets/OutdoorsScene/Sky and Fog Settings.asset    |   271 [32m+[m
+ .../OutdoorsScene/Sky and Fog Settings.asset.meta  |     8 [32m+[m
+ Assets/Pixelate.shadergraph                        |  6425 [32m+++++++[m
+ Assets/Pixelate.shadergraph.meta                   |    10 [32m+[m
+ Assets/PlayerController.cs                         |    69 [32m+[m
+ Assets/PlayerController.cs.meta                    |    11 [32m+[m
+ Assets/ProBuilder Data.meta                        |     8 [32m+[m
+ Assets/ProBuilder Data/Default Color Palette.asset |    31 [32m+[m
+ .../Default Color Palette.asset.meta               |     8 [32m+[m
+ Assets/Readme.asset                                |    39 [32m+[m
+ Assets/Readme.asset.meta                           |     8 [32m+[m
+ Assets/Rock.jpg                                    |     3 [32m+[m
+ Assets/Rock.jpg.meta                               |   140 [32m+[m
+ Assets/Scripts.meta                                |     8 [32m+[m
+ Assets/Scripts/AIManager.cs                        |    18 [32m+[m
+ Assets/Scripts/AIManager.cs.meta                   |    11 [32m+[m
+ Assets/Scripts/FPSDisplay.cs                       |    21 [32m+[m
+ Assets/Scripts/FPSDisplay.cs.meta                  |    11 [32m+[m
+ Assets/Scripts/Health.cs                           |    60 [32m+[m
+ Assets/Scripts/Health.cs.meta                      |    11 [32m+[m
+ Assets/Scripts/Weapon.cs                           |    27 [32m+[m
+ Assets/Scripts/Weapon.cs.meta                      |    11 [32m+[m
+ Assets/Scripts/item.cs                             |    10 [32m+[m
+ Assets/Scripts/item.cs.meta                        |    11 [32m+[m
+ Assets/Settings.meta                               |     8 [32m+[m
+ Assets/Settings/HDRP Balanced.asset                |   497 [32m+[m
+ Assets/Settings/HDRP Balanced.asset.meta           |     8 [32m+[m
+ Assets/Settings/HDRP High Fidelity.asset           |   498 [32m+[m
+ Assets/Settings/HDRP High Fidelity.asset.meta      |     8 [32m+[m
+ Assets/Settings/HDRP Performant.asset              |   496 [32m+[m
+ Assets/Settings/HDRP Performant.asset.meta         |     8 [32m+[m
+ Assets/Settings/HDRPDefaultResources.meta          |     8 [32m+[m
+ .../DefaultLookDevProfile.asset                    |   259 [32m+[m
+ .../DefaultLookDevProfile.asset.meta               |     8 [32m+[m
+ .../DefaultSettingsVolumeProfile.asset             |   800 [32m+[m
+ .../DefaultSettingsVolumeProfile.asset.meta        |     8 [32m+[m
+ .../HDRenderPipelineAsset.asset                    |   494 [32m+[m
+ .../HDRenderPipelineAsset.asset.meta               |     8 [32m+[m
+ .../HDRenderPipelineGlobalSettings.asset           |   153 [32m+[m
+ .../HDRenderPipelineGlobalSettings.asset.meta      |     8 [32m+[m
+ Assets/Settings/SkyandFogSettingsProfile.asset     |   464 [32m+[m
+ .../Settings/SkyandFogSettingsProfile.asset.meta   |     8 [32m+[m
+ Assets/TutorialInfo.meta                           |     8 [32m+[m
+ Assets/TutorialInfo/Icons.meta                     |     9 [32m+[m
+ Assets/TutorialInfo/Icons/HDRP.png                 |     3 [32m+[m
+ Assets/TutorialInfo/Icons/HDRP.png.meta            |   108 [32m+[m
+ Assets/TutorialInfo/Icons/Help_Icon.png            |     3 [32m+[m
+ Assets/TutorialInfo/Icons/Help_Icon.png.meta       |   128 [32m+[m
+ Assets/TutorialInfo/Layout.wlt                     |   654 [32m+[m
+ Assets/TutorialInfo/Layout.wlt.meta                |     8 [32m+[m
+ Assets/TutorialInfo/Scripts.meta                   |     9 [32m+[m
+ Assets/TutorialInfo/Scripts/Editor.meta            |     9 [32m+[m
+ Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs |   242 [32m+[m
+ .../Scripts/Editor/ReadmeEditor.cs.meta            |    12 [32m+[m
+ Assets/TutorialInfo/Scripts/Readme.cs              |    16 [32m+[m
+ Assets/TutorialInfo/Scripts/Readme.cs.meta         |    12 [32m+[m
+ Assets/WoodsLifestyle.meta                         |     8 [32m+[m
+ Assets/WoodsLifestyle/Materials.meta               |     9 [32m+[m
+ Assets/WoodsLifestyle/Materials/BrownMat_01.mat    |   319 [32m+[m
+ .../WoodsLifestyle/Materials/BrownMat_01.mat.meta  |     8 [32m+[m
+ Assets/WoodsLifestyle/Materials/BrownMat_02.mat    |   319 [32m+[m
+ .../WoodsLifestyle/Materials/BrownMat_02.mat.meta  |     8 [32m+[m
+ Assets/WoodsLifestyle/Materials/BrownMat_03.mat    |   319 [32m+[m
+ .../WoodsLifestyle/Materials/BrownMat_03.mat.meta  |     8 [32m+[m
+ Assets/WoodsLifestyle/Materials/BrownMat_04.mat    |   319 [32m+[m
+ .../WoodsLifestyle/Materials/BrownMat_04.mat.meta  |     8 [32m+[m
+ Assets/WoodsLifestyle/Materials/BrownMat_05.mat    |   319 [32m+[m
+ .../WoodsLifestyle/Materials/BrownMat_05.mat.meta  |     8 [32m+[m
+ Assets/WoodsLifestyle/Materials/BrownMat_06.mat    |   319 [32m+[m
+ .../WoodsLifestyle/Materials/BrownMat_06.mat.meta  |     8 [32m+[m
+ Assets/WoodsLifestyle/Materials/BrownMat_07.mat    |   319 [32m+[m
+ .../WoodsLifestyle/Materials/BrownMat_07.mat.meta  |     8 [32m+[m
+ Assets/WoodsLifestyle/Materials/BrownMat_08.mat    |   319 [32m+[m
+ .../WoodsLifestyle/Materials/BrownMat_08.mat.meta  |     8 [32m+[m
+ Assets/WoodsLifestyle/Materials/BrownMat_09.mat    |   319 [32m+[m
+ .../WoodsLifestyle/Materials/BrownMat_09.mat.meta  |     8 [32m+[m
+ Assets/WoodsLifestyle/Materials/BrownMat_10.mat    |   319 [32m+[m
+ .../WoodsLifestyle/Materials/BrownMat_10.mat.meta  |     8 [32m+[m
+ Assets/WoodsLifestyle/Materials/BrownMat_11.mat    |   319 [32m+[m
+ .../WoodsLifestyle/Materials/BrownMat_11.mat.meta  |     8 [32m+[m
+ Assets/WoodsLifestyle/Materials/BrownMat_12.mat    |   319 [32m+[m
+ .../WoodsLifestyle/Materials/BrownMat_12.mat.meta  |     8 [32m+[m
+ Assets/WoodsLifestyle/Materials/BrownMat_13.mat    |   319 [32m+[m
+ .../WoodsLifestyle/Materials/BrownMat_13.mat.meta  |     8 [32m+[m
+ .../WoodsLifestyle/Materials/FullRange_All_01.mat  |   319 [32m+[m
+ .../Materials/FullRange_All_01.mat.meta            |     8 [32m+[m
+ Assets/WoodsLifestyle/Materials/GreyMat_01.mat     |   319 [32m+[m
+ .../WoodsLifestyle/Materials/GreyMat_01.mat.meta   |     8 [32m+[m
+ Assets/WoodsLifestyle/Models.meta                  |     9 [32m+[m
+ Assets/WoodsLifestyle/Models/Boards.meta           |     9 [32m+[m
+ Assets/WoodsLifestyle/Models/Boards/Board_01_a.fbx |     3 [32m+[m
+ .../Models/Boards/Board_01_a.fbx.meta              |    76 [32m+[m
+ .../WoodsLifestyle/Models/Boards/Board_01_a002.fbx |     3 [32m+[m
+ .../Models/Boards/Board_01_a002.fbx.meta           |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Boards/Board_01_b.fbx |     3 [32m+[m
+ .../Models/Boards/Board_01_b.fbx.meta              |    76 [32m+[m
+ .../WoodsLifestyle/Models/Boards/Board_01_b002.fbx |     3 [32m+[m
+ .../Models/Boards/Board_01_b002.fbx.meta           |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Boards/Palnk_02_a.fbx |     3 [32m+[m
+ .../Models/Boards/Palnk_02_a.fbx.meta              |    76 [32m+[m
+ .../WoodsLifestyle/Models/Boards/Palnk_02_a002.fbx |     3 [32m+[m
+ .../Models/Boards/Palnk_02_a002.fbx.meta           |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Boards/Plank_01_a.fbx |     3 [32m+[m
+ .../Models/Boards/Plank_01_a.fbx.meta              |    76 [32m+[m
+ .../WoodsLifestyle/Models/Boards/Plank_01_a002.fbx |     3 [32m+[m
+ .../Models/Boards/Plank_01_a002.fbx.meta           |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Boards/Plank_03_a.fbx |     3 [32m+[m
+ .../Models/Boards/Plank_03_a.fbx.meta              |    76 [32m+[m
+ .../WoodsLifestyle/Models/Boards/Plank_03_a002.fbx |     3 [32m+[m
+ .../Models/Boards/Plank_03_a002.fbx.meta           |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Buildings.meta        |     9 [32m+[m
+ .../WoodsLifestyle/Models/Buildings/Bridge_01.fbx  |     3 [32m+[m
+ .../Models/Buildings/Bridge_01.fbx.meta            |    76 [32m+[m
+ .../WoodsLifestyle/Models/Buildings/Bridge_02.fbx  |     3 [32m+[m
+ .../Models/Buildings/Bridge_02.fbx.meta            |    76 [32m+[m
+ .../WoodsLifestyle/Models/Buildings/Bridge_03.fbx  |     3 [32m+[m
+ .../Models/Buildings/Bridge_03.fbx.meta            |    76 [32m+[m
+ .../Models/Buildings/OutlookPost_01.fbx            |     3 [32m+[m
+ .../Models/Buildings/OutlookPost_01.fbx.meta       |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Buildings/Shed_01.fbx |     3 [32m+[m
+ .../Models/Buildings/Shed_01.fbx.meta              |    76 [32m+[m
+ .../WoodsLifestyle/Models/Buildings/Swing_01.fbx   |     3 [32m+[m
+ .../Models/Buildings/Swing_01.fbx.meta             |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Buildings/Tent_01.fbx |     3 [32m+[m
+ .../Models/Buildings/Tent_01.fbx.meta              |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Buildings/Well_01.fbx |     3 [32m+[m
+ .../Models/Buildings/Well_01.fbx.meta              |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Cabins.meta           |     9 [32m+[m
+ Assets/WoodsLifestyle/Models/Cabins/Doors.meta     |     9 [32m+[m
+ .../WoodsLifestyle/Models/Cabins/Doors/Door_01.fbx |     3 [32m+[m
+ .../Models/Cabins/Doors/Door_01.fbx.meta           |    76 [32m+[m
+ .../WoodsLifestyle/Models/Cabins/Doors/Door_02.fbx |     3 [32m+[m
+ .../Models/Cabins/Doors/Door_02.fbx.meta           |    76 [32m+[m
+ .../WoodsLifestyle/Models/Cabins/Doors/Door_03.fbx |     3 [32m+[m
+ .../Models/Cabins/Doors/Door_03.fbx.meta           |    76 [32m+[m
+ .../WoodsLifestyle/Models/Cabins/Doors/Door_04.fbx |     3 [32m+[m
+ .../Models/Cabins/Doors/Door_04.fbx.meta           |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Cabins/Floors.meta    |     9 [32m+[m
+ .../Models/Cabins/Floors/DeckFloor_01.fbx          |     3 [32m+[m
+ .../Models/Cabins/Floors/DeckFloor_01.fbx.meta     |    76 [32m+[m
+ .../Models/Cabins/Floors/Floor_01_a.fbx            |     3 [32m+[m
+ .../Models/Cabins/Floors/Floor_01_a.fbx.meta       |    76 [32m+[m
+ .../Models/Cabins/Floors/Floor_01_b.fbx            |     3 [32m+[m
+ .../Models/Cabins/Floors/Floor_01_b.fbx.meta       |    76 [32m+[m
+ .../Models/Cabins/Floors/Floor_01_c.fbx            |     3 [32m+[m
+ .../Models/Cabins/Floors/Floor_01_c.fbx.meta       |    76 [32m+[m
+ .../Models/Cabins/Floors/Platform_01.fbx           |     3 [32m+[m
+ .../Models/Cabins/Floors/Platform_01.fbx.meta      |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Cabins/Roofs.meta     |     9 [32m+[m
+ .../WoodsLifestyle/Models/Cabins/Roofs/Roof_01.fbx |     3 [32m+[m
+ .../Models/Cabins/Roofs/Roof_01.fbx.meta           |    76 [32m+[m
+ .../Models/Cabins/Roofs/Roof_01_a.fbx              |     3 [32m+[m
+ .../Models/Cabins/Roofs/Roof_01_a.fbx.meta         |    76 [32m+[m
+ .../Models/Cabins/Roofs/Roof_01_b.fbx              |     3 [32m+[m
+ .../Models/Cabins/Roofs/Roof_01_b.fbx.meta         |    76 [32m+[m
+ .../WoodsLifestyle/Models/Cabins/Roofs/Roof_02.fbx |     3 [32m+[m
+ .../Models/Cabins/Roofs/Roof_02.fbx.meta           |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Cabins/Walls.meta     |     9 [32m+[m
+ .../Models/Cabins/Walls/Wall_Narrow_01_a.fbx       |     3 [32m+[m
+ .../Models/Cabins/Walls/Wall_Narrow_01_a.fbx.meta  |    76 [32m+[m
+ .../Models/Cabins/Walls/Wall_Narrow_01_b.fbx       |     3 [32m+[m
+ .../Models/Cabins/Walls/Wall_Narrow_01_b.fbx.meta  |    76 [32m+[m
+ .../Models/Cabins/Walls/Wall_Narrow_01_c.fbx       |     3 [32m+[m
+ .../Models/Cabins/Walls/Wall_Narrow_01_c.fbx.meta  |    76 [32m+[m
+ .../Models/Cabins/Walls/Wall_Narrow_02_a.fbx       |     3 [32m+[m
+ .../Models/Cabins/Walls/Wall_Narrow_02_a.fbx.meta  |    76 [32m+[m
+ .../Models/Cabins/Walls/Wall_Narrow_02_b.fbx       |     3 [32m+[m
+ .../Models/Cabins/Walls/Wall_Narrow_02_b.fbx.meta  |    76 [32m+[m
+ .../Models/Cabins/Walls/Wall_Narrow_02_c.fbx       |     3 [32m+[m
+ .../Models/Cabins/Walls/Wall_Narrow_02_c.fbx.meta  |    76 [32m+[m
+ .../Models/Cabins/Walls/Wall_Wide_01_a.fbx         |     3 [32m+[m
+ .../Models/Cabins/Walls/Wall_Wide_01_a.fbx.meta    |    76 [32m+[m
+ .../Models/Cabins/Walls/Wall_Wide_01_b.fbx         |     3 [32m+[m
+ .../Models/Cabins/Walls/Wall_Wide_01_b.fbx.meta    |    76 [32m+[m
+ .../Models/Cabins/Walls/Wall_Wide_01_c.fbx         |     3 [32m+[m
+ .../Models/Cabins/Walls/Wall_Wide_01_c.fbx.meta    |    76 [32m+[m
+ .../Models/Cabins/Walls/Wall_Wide_02_a.fbx         |     3 [32m+[m
+ .../Models/Cabins/Walls/Wall_Wide_02_a.fbx.meta    |    76 [32m+[m
+ .../Models/Cabins/Walls/Wall_Wide_02_b.fbx         |     3 [32m+[m
+ .../Models/Cabins/Walls/Wall_Wide_02_b.fbx.meta    |    76 [32m+[m
+ .../Models/Cabins/Walls/Wall_Wide_02_c.fbx         |     3 [32m+[m
+ .../Models/Cabins/Walls/Wall_Wide_02_c.fbx.meta    |    76 [32m+[m
+ .../Models/Cabins/Walls/Wall_Wide_03.fbx           |     3 [32m+[m
+ .../Models/Cabins/Walls/Wall_Wide_03.fbx.meta      |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Fences.meta           |     9 [32m+[m
+ .../Models/Fences/Fence_Closed_01.FBX              |     3 [32m+[m
+ .../Models/Fences/Fence_Closed_01.FBX.meta         |    78 [32m+[m
+ .../Models/Fences/Fence_Closed_02.FBX              |     3 [32m+[m
+ .../Models/Fences/Fence_Closed_02.FBX.meta         |    78 [32m+[m
+ .../Models/Fences/Fence_Closed_03.FBX              |     3 [32m+[m
+ .../Models/Fences/Fence_Closed_03.FBX.meta         |    78 [32m+[m
+ .../Models/Fences/Fence_Closed_04.FBX              |     3 [32m+[m
+ .../Models/Fences/Fence_Closed_04.FBX.meta         |    78 [32m+[m
+ .../Models/Fences/Fence_Closed_05.FBX              |     3 [32m+[m
+ .../Models/Fences/Fence_Closed_05.FBX.meta         |    78 [32m+[m
+ .../Models/Fences/Fence_Closed_06.FBX              |     3 [32m+[m
+ .../Models/Fences/Fence_Closed_06.FBX.meta         |    78 [32m+[m
+ .../Models/Fences/Fence_Closed_07.FBX              |     3 [32m+[m
+ .../Models/Fences/Fence_Closed_07.FBX.meta         |    76 [32m+[m
+ .../Models/Fences/Fence_Closed_08.FBX              |     3 [32m+[m
+ .../Models/Fences/Fence_Closed_08.FBX.meta         |    76 [32m+[m
+ .../WoodsLifestyle/Models/Fences/Fence_Full_01.FBX |     3 [32m+[m
+ .../Models/Fences/Fence_Full_01.FBX.meta           |    76 [32m+[m
+ .../WoodsLifestyle/Models/Fences/Fence_Full_02.FBX |     3 [32m+[m
+ .../Models/Fences/Fence_Full_02.FBX.meta           |    76 [32m+[m
+ .../WoodsLifestyle/Models/Fences/Fence_Full_03.FBX |     3 [32m+[m
+ .../Models/Fences/Fence_Full_03.FBX.meta           |    76 [32m+[m
+ .../WoodsLifestyle/Models/Fences/Fence_Full_04.FBX |     3 [32m+[m
+ .../Models/Fences/Fence_Full_04.FBX.meta           |    76 [32m+[m
+ .../WoodsLifestyle/Models/Fences/Fence_Full_05.FBX |     3 [32m+[m
+ .../Models/Fences/Fence_Full_05.FBX.meta           |    76 [32m+[m
+ .../WoodsLifestyle/Models/Fences/Fence_Full_06.FBX |     3 [32m+[m
+ .../Models/Fences/Fence_Full_06.FBX.meta           |    76 [32m+[m
+ .../WoodsLifestyle/Models/Fences/Fence_Full_07.FBX |     3 [32m+[m
+ .../Models/Fences/Fence_Full_07.FBX.meta           |    76 [32m+[m
+ .../WoodsLifestyle/Models/Fences/Fence_Full_08.FBX |     3 [32m+[m
+ .../Models/Fences/Fence_Full_08.FBX.meta           |    76 [32m+[m
+ .../WoodsLifestyle/Models/Fences/Fence_Open_01.FBX |     3 [32m+[m
+ .../Models/Fences/Fence_Open_01.FBX.meta           |    78 [32m+[m
+ .../WoodsLifestyle/Models/Fences/Fence_Open_02.FBX |     3 [32m+[m
+ .../Models/Fences/Fence_Open_02.FBX.meta           |    78 [32m+[m
+ .../WoodsLifestyle/Models/Fences/Fence_Open_03.FBX |     3 [32m+[m
+ .../Models/Fences/Fence_Open_03.FBX.meta           |    78 [32m+[m
+ .../WoodsLifestyle/Models/Fences/Fence_Open_04.FBX |     3 [32m+[m
+ .../Models/Fences/Fence_Open_04.FBX.meta           |    78 [32m+[m
+ .../WoodsLifestyle/Models/Fences/Fence_Open_05.FBX |     3 [32m+[m
+ .../Models/Fences/Fence_Open_05.FBX.meta           |    78 [32m+[m
+ .../WoodsLifestyle/Models/Fences/Fence_Open_06.FBX |     3 [32m+[m
+ .../Models/Fences/Fence_Open_06.FBX.meta           |    78 [32m+[m
+ .../WoodsLifestyle/Models/Fences/Fence_Open_07.FBX |     3 [32m+[m
+ .../Models/Fences/Fence_Open_07.FBX.meta           |    76 [32m+[m
+ .../WoodsLifestyle/Models/Fences/Fence_Open_08.FBX |     3 [32m+[m
+ .../Models/Fences/Fence_Open_08.FBX.meta           |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Fences/Materials.meta |     9 [32m+[m
+ .../Models/Fences/Materials/No Name.mat            |   315 [32m+[m
+ .../Models/Fences/Materials/No Name.mat.meta       |     8 [32m+[m
+ Assets/WoodsLifestyle/Models/Logs_Wood.meta        |     9 [32m+[m
+ .../Models/Logs_Wood/FireWood_01.fbx               |     3 [32m+[m
+ .../Models/Logs_Wood/FireWood_01.fbx.meta          |    76 [32m+[m
+ .../Models/Logs_Wood/FireWood_02.fbx               |     3 [32m+[m
+ .../Models/Logs_Wood/FireWood_02.fbx.meta          |    76 [32m+[m
+ .../Models/Logs_Wood/LogHeap_01_a.fbx              |     3 [32m+[m
+ .../Models/Logs_Wood/LogHeap_01_a.fbx.meta         |    76 [32m+[m
+ .../Models/Logs_Wood/LogHeap_01_b.fbx              |     3 [32m+[m
+ .../Models/Logs_Wood/LogHeap_01_b.fbx.meta         |    76 [32m+[m
+ .../Models/Logs_Wood/LogHeap_02_a.fbx              |     3 [32m+[m
+ .../Models/Logs_Wood/LogHeap_02_a.fbx.meta         |    76 [32m+[m
+ .../Models/Logs_Wood/LogHeap_02_b.fbx              |     3 [32m+[m
+ .../Models/Logs_Wood/LogHeap_02_b.fbx.meta         |    76 [32m+[m
+ .../WoodsLifestyle/Models/Logs_Wood/Log_01_a.fbx   |     3 [32m+[m
+ .../Models/Logs_Wood/Log_01_a.fbx.meta             |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Props.meta            |     9 [32m+[m
+ Assets/WoodsLifestyle/Models/Props/Exterior.meta   |     9 [32m+[m
+ .../Models/Props/Exterior/LightPost_01.fbx         |     3 [32m+[m
+ .../Models/Props/Exterior/LightPost_01.fbx.meta    |    76 [32m+[m
+ .../Models/Props/Exterior/SignPost_01_a.fbx        |     3 [32m+[m
+ .../Models/Props/Exterior/SignPost_01_a.fbx.meta   |    76 [32m+[m
+ .../Models/Props/Exterior/SignPost_01_b.fbx        |     3 [32m+[m
+ .../Models/Props/Exterior/SignPost_01_b.fbx.meta   |    76 [32m+[m
+ .../Models/Props/Exterior/SignPost_02_a.fbx        |     3 [32m+[m
+ .../Models/Props/Exterior/SignPost_02_a.fbx.meta   |    76 [32m+[m
+ .../Models/Props/Exterior/SignPost_02_b.fbx        |     3 [32m+[m
+ .../Models/Props/Exterior/SignPost_02_b.fbx.meta   |    76 [32m+[m
+ .../Models/Props/Exterior/Sign_01_a.fbx            |     3 [32m+[m
+ .../Models/Props/Exterior/Sign_01_a.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Exterior/Sign_01_b.fbx            |     3 [32m+[m
+ .../Models/Props/Exterior/Sign_01_b.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Exterior/Stand_01.fbx             |     3 [32m+[m
+ .../Models/Props/Exterior/Stand_01.fbx.meta        |    76 [32m+[m
+ .../Models/Props/Exterior/Stand_02.fbx             |     3 [32m+[m
+ .../Models/Props/Exterior/Stand_02.fbx.meta        |    76 [32m+[m
+ .../Models/Props/Exterior/Stand_03_a.fbx           |     3 [32m+[m
+ .../Models/Props/Exterior/Stand_03_a.fbx.meta      |    76 [32m+[m
+ .../Models/Props/Exterior/Stand_03_b.fbx           |     3 [32m+[m
+ .../Models/Props/Exterior/Stand_03_b.fbx.meta      |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Props/Furniture.meta  |     9 [32m+[m
+ .../Models/Props/Furniture/BedDouble_01.fbx        |     3 [32m+[m
+ .../Models/Props/Furniture/BedDouble_01.fbx.meta   |    76 [32m+[m
+ .../Models/Props/Furniture/BedSingle_01.fbx        |     3 [32m+[m
+ .../Models/Props/Furniture/BedSingle_01.fbx.meta   |    76 [32m+[m
+ .../Models/Props/Furniture/BookShelf_01.fbx        |     3 [32m+[m
+ .../Models/Props/Furniture/BookShelf_01.fbx.meta   |    76 [32m+[m
+ .../Models/Props/Furniture/Cabinet_01.fbx          |     3 [32m+[m
+ .../Models/Props/Furniture/Cabinet_01.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Furniture/Chair_01.fbx            |     3 [32m+[m
+ .../Models/Props/Furniture/Chair_01.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Furniture/Dresser_01.fbx          |     3 [32m+[m
+ .../Models/Props/Furniture/Dresser_01.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Furniture/Fireplace_01.fbx        |     3 [32m+[m
+ .../Models/Props/Furniture/Fireplace_01.fbx.meta   |    76 [32m+[m
+ .../Models/Props/Furniture/KitchenTable_01.fbx     |     3 [32m+[m
+ .../Props/Furniture/KitchenTable_01.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Furniture/Shelf_01.fbx            |     3 [32m+[m
+ .../Models/Props/Furniture/Shelf_01.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Furniture/Stool_01.fbx            |     3 [32m+[m
+ .../Models/Props/Furniture/Stool_01.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Furniture/Stool_02.fbx            |     3 [32m+[m
+ .../Models/Props/Furniture/Stool_02.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Furniture/Table_01_a.fbx          |     3 [32m+[m
+ .../Models/Props/Furniture/Table_01_a.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Furniture/Table_01_b.fbx          |     3 [32m+[m
+ .../Models/Props/Furniture/Table_01_b.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Furniture/Table_02_a.fbx          |     3 [32m+[m
+ .../Models/Props/Furniture/Table_02_a.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Furniture/Table_02_b.fbx          |     3 [32m+[m
+ .../Models/Props/Furniture/Table_02_b.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Furniture/Table_03.fbx            |     3 [32m+[m
+ .../Models/Props/Furniture/Table_03.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Furniture/WallShelf_01.fbx        |     3 [32m+[m
+ .../Models/Props/Furniture/WallShelf_01.fbx.meta   |    76 [32m+[m
+ .../Models/Props/Furniture/WallShelf_02.fbx        |     3 [32m+[m
+ .../Models/Props/Furniture/WallShelf_02.fbx.meta   |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Props/General.meta    |     9 [32m+[m
+ .../Models/Props/General/Barrel_01.fbx             |     3 [32m+[m
+ .../Models/Props/General/Barrel_01.fbx.meta        |    76 [32m+[m
+ .../Models/Props/General/Boiler_01.fbx             |     3 [32m+[m
+ .../Models/Props/General/Boiler_01.fbx.meta        |    76 [32m+[m
+ .../Models/Props/General/Box_01_a.fbx              |     3 [32m+[m
+ .../Models/Props/General/Box_01_a.fbx.meta         |    76 [32m+[m
+ .../Models/Props/General/Box_01_b.fbx              |     3 [32m+[m
+ .../Models/Props/General/Box_01_b.fbx.meta         |    76 [32m+[m
+ .../Models/Props/General/Box_01_c.fbx              |     3 [32m+[m
+ .../Models/Props/General/Box_01_c.fbx.meta         |    76 [32m+[m
+ .../Models/Props/General/BucketSand.fbx            |     3 [32m+[m
+ .../Models/Props/General/BucketSand.fbx.meta       |    76 [32m+[m
+ .../Models/Props/General/BucketWater.fbx           |     3 [32m+[m
+ .../Models/Props/General/BucketWater.fbx.meta      |    76 [32m+[m
+ .../Models/Props/General/Bucket_01_b.fbx           |     3 [32m+[m
+ .../Models/Props/General/Bucket_01_b.fbx.meta      |    76 [32m+[m
+ .../Models/Props/General/CookingStand_01.fbx       |     3 [32m+[m
+ .../Models/Props/General/CookingStand_01.fbx.meta  |    76 [32m+[m
+ .../Models/Props/General/WheeledCarrier_01.fbx     |     3 [32m+[m
+ .../Props/General/WheeledCarrier_01.fbx.meta       |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Props/Interior.meta   |     9 [32m+[m
+ .../Models/Props/Interior/BookCollection_01.fbx    |     3 [32m+[m
+ .../Props/Interior/BookCollection_01.fbx.meta      |    76 [32m+[m
+ .../Models/Props/Interior/BookOpen_01_a.fbx        |     3 [32m+[m
+ .../Models/Props/Interior/BookOpen_01_a.fbx.meta   |    76 [32m+[m
+ .../Models/Props/Interior/BookOpen_01_b.fbx        |     3 [32m+[m
+ .../Models/Props/Interior/BookOpen_01_b.fbx.meta   |    76 [32m+[m
+ .../Models/Props/Interior/BookOpen_01_c.fbx        |     3 [32m+[m
+ .../Models/Props/Interior/BookOpen_01_c.fbx.meta   |    76 [32m+[m
+ .../Models/Props/Interior/BookOpen_01_d.fbx        |     3 [32m+[m
+ .../Models/Props/Interior/BookOpen_01_d.fbx.meta   |    76 [32m+[m
+ .../Models/Props/Interior/Book_01_a.fbx            |     3 [32m+[m
+ .../Models/Props/Interior/Book_01_a.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Interior/Book_01_b.fbx            |     3 [32m+[m
+ .../Models/Props/Interior/Book_01_b.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Interior/Book_01_c.fbx            |     3 [32m+[m
+ .../Models/Props/Interior/Book_01_c.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Interior/Book_01_d.fbx            |     3 [32m+[m
+ .../Models/Props/Interior/Book_01_d.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Interior/Book_02_a.fbx            |     3 [32m+[m
+ .../Models/Props/Interior/Book_02_a.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Interior/Book_02_b.fbx            |     3 [32m+[m
+ .../Models/Props/Interior/Book_02_b.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Interior/Book_02_c.fbx            |     3 [32m+[m
+ .../Models/Props/Interior/Book_02_c.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Interior/Book_02_d.fbx            |     3 [32m+[m
+ .../Models/Props/Interior/Book_02_d.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Interior/Book_03_a.fbx            |     3 [32m+[m
+ .../Models/Props/Interior/Book_03_a.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Interior/Book_03_b.fbx            |     3 [32m+[m
+ .../Models/Props/Interior/Book_03_b.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Interior/Book_03_c.fbx            |     3 [32m+[m
+ .../Models/Props/Interior/Book_03_c.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Interior/Book_03_d.fbx            |     3 [32m+[m
+ .../Models/Props/Interior/Book_03_d.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Interior/Candle_01_a.fbx          |     3 [32m+[m
+ .../Models/Props/Interior/Candle_01_a.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Interior/Candle_01_b.fbx          |     3 [32m+[m
+ .../Models/Props/Interior/Candle_01_b.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Interior/Candle_01_c.fbx          |     3 [32m+[m
+ .../Models/Props/Interior/Candle_01_c.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Interior/Candle_02_a.fbx          |     3 [32m+[m
+ .../Models/Props/Interior/Candle_02_a.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Interior/Candle_02_b.fbx          |     3 [32m+[m
+ .../Models/Props/Interior/Candle_02_b.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Interior/Candle_02_c.fbx          |     3 [32m+[m
+ .../Models/Props/Interior/Candle_02_c.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Interior/Candle_02_d.fbx          |     3 [32m+[m
+ .../Models/Props/Interior/Candle_02_d.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Interior/Candle_03_a.fbx          |     3 [32m+[m
+ .../Models/Props/Interior/Candle_03_a.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Interior/Candle_03_b.fbx          |     3 [32m+[m
+ .../Models/Props/Interior/Candle_03_b.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Interior/Candle_03_c.fbx          |     3 [32m+[m
+ .../Models/Props/Interior/Candle_03_c.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Interior/Candle_03_d.fbx          |     3 [32m+[m
+ .../Models/Props/Interior/Candle_03_d.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Interior/Lamp_01_a.fbx            |     3 [32m+[m
+ .../Models/Props/Interior/Lamp_01_a.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Interior/Lamp_01_b.fbx            |     3 [32m+[m
+ .../Models/Props/Interior/Lamp_01_b.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Interior/Lamp_01_c.fbx            |     3 [32m+[m
+ .../Models/Props/Interior/Lamp_01_c.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Interior/Lamp_01_d.fbx            |     3 [32m+[m
+ .../Models/Props/Interior/Lamp_01_d.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Interior/Mirror_01.fbx            |     3 [32m+[m
+ .../Models/Props/Interior/Mirror_01.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Interior/Pot_01_a.fbx             |     3 [32m+[m
+ .../Models/Props/Interior/Pot_01_a.fbx.meta        |    76 [32m+[m
+ .../Models/Props/Interior/Pot_01_b.fbx             |     3 [32m+[m
+ .../Models/Props/Interior/Pot_01_b.fbx.meta        |    76 [32m+[m
+ .../Models/Props/Interior/WallCandle_01.fbx        |     3 [32m+[m
+ .../Models/Props/Interior/WallCandle_01.fbx.meta   |    76 [32m+[m
+ .../Models/Props/Interior/WallLight_01.fbx         |     3 [32m+[m
+ .../Models/Props/Interior/WallLight_01.fbx.meta    |    76 [32m+[m
+ .../Models/Props/Interior/WallLight_02.fbx         |     3 [32m+[m
+ .../Models/Props/Interior/WallLight_02.fbx.meta    |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Props/Water.meta      |     9 [32m+[m
+ .../WoodsLifestyle/Models/Props/Water/Canoe_01.fbx |     3 [32m+[m
+ .../Models/Props/Water/Canoe_01.fbx.meta           |    76 [32m+[m
+ .../WoodsLifestyle/Models/Props/Water/Jetty.meta   |     9 [32m+[m
+ .../Models/Props/Water/Jetty/JettiBoard_01_a.fbx   |     3 [32m+[m
+ .../Props/Water/Jetty/JettiBoard_01_a.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Water/Jetty/JettiBoard_02_a.fbx   |     3 [32m+[m
+ .../Props/Water/Jetty/JettiBoard_02_a.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Water/Jetty/JettiBoard_03_a.fbx   |     3 [32m+[m
+ .../Props/Water/Jetty/JettiBoard_03_a.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Water/Jetty/JettiBoard_04_a.fbx   |     3 [32m+[m
+ .../Props/Water/Jetty/JettiBoard_04_a.fbx.meta     |    76 [32m+[m
+ .../Models/Props/Water/Jetty/JettiBoard_05_a.fbx   |     3 [32m+[m
+ .../Props/Water/Jetty/JettiBoard_05_a.fbx.meta     |    76 [32m+[m
+ .../Props/Water/Jetty/JettiBoard_Turn_01_a.fbx     |     3 [32m+[m
+ .../Water/Jetty/JettiBoard_Turn_01_a.fbx.meta      |    76 [32m+[m
+ .../Props/Water/Jetty/JettiBoard_Turn_02_a.fbx     |     3 [32m+[m
+ .../Water/Jetty/JettiBoard_Turn_02_a.fbx.meta      |    76 [32m+[m
+ .../Models/Props/Water/Jetty/JettiPosts_01.fbx     |     3 [32m+[m
+ .../Props/Water/Jetty/JettiPosts_01.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Water/Lifebuoy_01.fbx             |     3 [32m+[m
+ .../Models/Props/Water/Lifebuoy_01.fbx.meta        |    76 [32m+[m
+ .../WoodsLifestyle/Models/Props/Water/Oar_01.fbx   |     3 [32m+[m
+ .../Models/Props/Water/Oar_01.fbx.meta             |    76 [32m+[m
+ .../Models/Props/Water/RowBoat_01_a.fbx            |     3 [32m+[m
+ .../Models/Props/Water/RowBoat_01_a.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Water/RowBoat_01_b.fbx            |     3 [32m+[m
+ .../Models/Props/Water/RowBoat_01_b.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Water/RowBoat_01_c.fbx            |     3 [32m+[m
+ .../Models/Props/Water/RowBoat_01_c.fbx.meta       |    76 [32m+[m
+ .../Models/Props/Water/RowBoat_01_d.fbx            |     3 [32m+[m
+ .../Models/Props/Water/RowBoat_01_d.fbx.meta       |    76 [32m+[m
+ .../WoodsLifestyle/Models/Props/WaterTowers.meta   |     9 [32m+[m
+ .../Models/Props/WaterTowers/Tower_01.fbx          |     3 [32m+[m
+ .../Models/Props/WaterTowers/Tower_01.fbx.meta     |    76 [32m+[m
+ .../Models/Props/WaterTowers/Tower_02.fbx          |     3 [32m+[m
+ .../Models/Props/WaterTowers/Tower_02.fbx.meta     |    76 [32m+[m
+ .../Models/Props/WaterTowers/Tower_03.fbx          |     3 [32m+[m
+ .../Models/Props/WaterTowers/Tower_03.fbx.meta     |    76 [32m+[m
+ .../Props/WaterTowers/WaterTenkPlatform_01.fbx     |     3 [32m+[m
+ .../WaterTowers/WaterTenkPlatform_01.fbx.meta      |    76 [32m+[m
+ .../Props/WaterTowers/WaterTenkPlatform_02.fbx     |     3 [32m+[m
+ .../WaterTowers/WaterTenkPlatform_02.fbx.meta      |    76 [32m+[m
+ .../Models/Props/WaterTowers/WaterTenk_01.fbx      |     3 [32m+[m
+ .../Models/Props/WaterTowers/WaterTenk_01.fbx.meta |    76 [32m+[m
+ .../Models/Props/WaterTowers/WaterTenk_02.fbx      |     3 [32m+[m
+ .../Models/Props/WaterTowers/WaterTenk_02.fbx.meta |    76 [32m+[m
+ .../Models/Props/WaterTowers/WaterTenk_03.fbx      |     3 [32m+[m
+ .../Models/Props/WaterTowers/WaterTenk_03.fbx.meta |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Rocks.meta            |     9 [32m+[m
+ .../Models/Rocks/RockBarrier_01_a.fbx              |     3 [32m+[m
+ .../Models/Rocks/RockBarrier_01_a.fbx.meta         |    76 [32m+[m
+ .../Models/Rocks/RockBarrier_01_b.fbx              |     3 [32m+[m
+ .../Models/Rocks/RockBarrier_01_b.fbx.meta         |    76 [32m+[m
+ .../Models/Rocks/RockBarrier_02_a.fbx              |     3 [32m+[m
+ .../Models/Rocks/RockBarrier_02_a.fbx.meta         |    76 [32m+[m
+ .../Models/Rocks/RockBarrier_02_b.fbx              |     3 [32m+[m
+ .../Models/Rocks/RockBarrier_02_b.fbx.meta         |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Rocks/Rock_01_a.fbx   |     3 [32m+[m
+ .../WoodsLifestyle/Models/Rocks/Rock_01_a.fbx.meta |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Rocks/Rock_01_b.fbx   |     3 [32m+[m
+ .../WoodsLifestyle/Models/Rocks/Rock_01_b.fbx.meta |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Rocks/Rock_01_c.fbx   |     3 [32m+[m
+ .../WoodsLifestyle/Models/Rocks/Rock_01_c.fbx.meta |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Rocks/Rock_01_d.fbx   |     3 [32m+[m
+ .../WoodsLifestyle/Models/Rocks/Rock_01_d.fbx.meta |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Rocks/Rock_01_e.fbx   |     3 [32m+[m
+ .../WoodsLifestyle/Models/Rocks/Rock_01_e.fbx.meta |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Rocks/Rock_01_f.fbx   |     3 [32m+[m
+ .../WoodsLifestyle/Models/Rocks/Rock_01_f.fbx.meta |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Rocks/Rock_02_a.fbx   |     3 [32m+[m
+ .../WoodsLifestyle/Models/Rocks/Rock_02_a.fbx.meta |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Rocks/Rock_02_b.fbx   |     3 [32m+[m
+ .../WoodsLifestyle/Models/Rocks/Rock_02_b.fbx.meta |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Rocks/Rock_02_c.fbx   |     3 [32m+[m
+ .../WoodsLifestyle/Models/Rocks/Rock_02_c.fbx.meta |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Rocks/Rock_02_d.fbx   |     3 [32m+[m
+ .../WoodsLifestyle/Models/Rocks/Rock_02_d.fbx.meta |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Rocks/Rock_02_e.fbx   |     3 [32m+[m
+ .../WoodsLifestyle/Models/Rocks/Rock_02_e.fbx.meta |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Rocks/Rock_03_a.fbx   |     3 [32m+[m
+ .../WoodsLifestyle/Models/Rocks/Rock_03_a.fbx.meta |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Rocks/Rock_03_b.fbx   |     3 [32m+[m
+ .../WoodsLifestyle/Models/Rocks/Rock_03_b.fbx.meta |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Rocks/Rock_03_c.fbx   |     3 [32m+[m
+ .../WoodsLifestyle/Models/Rocks/Rock_03_c.fbx.meta |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Stairs_Ladders.meta   |     9 [32m+[m
+ .../Models/Stairs_Ladders/Ladder_01.fbx            |     3 [32m+[m
+ .../Models/Stairs_Ladders/Ladder_01.fbx.meta       |    76 [32m+[m
+ .../Models/Stairs_Ladders/Staircase_01.fbx         |     3 [32m+[m
+ .../Models/Stairs_Ladders/Staircase_01.fbx.meta    |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Vegetation.meta       |     9 [32m+[m
+ .../WoodsLifestyle/Models/Vegetation/Bushes.meta   |     9 [32m+[m
+ .../Models/Vegetation/Bushes/Bush_a_01.fbx         |     3 [32m+[m
+ .../Models/Vegetation/Bushes/Bush_a_01.fbx.meta    |    76 [32m+[m
+ .../Models/Vegetation/Bushes/Bush_b_01.fbx         |     3 [32m+[m
+ .../Models/Vegetation/Bushes/Bush_b_01.fbx.meta    |    76 [32m+[m
+ .../Models/Vegetation/Bushes/Materials.meta        |     9 [32m+[m
+ .../Vegetation/Bushes/Materials/Leafs_Green_02.mat |   315 [32m+[m
+ .../Bushes/Materials/Leafs_Green_02.mat.meta       |     8 [32m+[m
+ .../WoodsLifestyle/Models/Vegetation/Flowers.meta  |     9 [32m+[m
+ .../Models/Vegetation/Flowers/Flower_a_a_01.fbx    |     3 [32m+[m
+ .../Vegetation/Flowers/Flower_a_a_01.fbx.meta      |    76 [32m+[m
+ .../Models/Vegetation/Flowers/Flower_b_01.fbx      |     3 [32m+[m
+ .../Models/Vegetation/Flowers/Flower_b_01.fbx.meta |    76 [32m+[m
+ .../Models/Vegetation/Flowers/Flower_c_a_01.fbx    |     3 [32m+[m
+ .../Vegetation/Flowers/Flower_c_a_01.fbx.meta      |    76 [32m+[m
+ .../Models/Vegetation/Flowers/Flower_c_a_02.fbx    |     3 [32m+[m
+ .../Vegetation/Flowers/Flower_c_a_02.fbx.meta      |    76 [32m+[m
+ .../Models/Vegetation/Flowers/Flower_c_a_03.fbx    |     3 [32m+[m
+ .../Vegetation/Flowers/Flower_c_a_03.fbx.meta      |    76 [32m+[m
+ .../Models/Vegetation/Flowers/Flower_c_b_01.fbx    |     3 [32m+[m
+ .../Vegetation/Flowers/Flower_c_b_01.fbx.meta      |    76 [32m+[m
+ .../Models/Vegetation/Flowers/Materials.meta       |     9 [32m+[m
+ .../Flowers/Materials/Leaves_Green_01.mat          |   315 [32m+[m
+ .../Flowers/Materials/Leaves_Green_01.mat.meta     |     8 [32m+[m
+ .../Flowers/Materials/Leaves_Orange_01.mat         |   315 [32m+[m
+ .../Flowers/Materials/Leaves_Orange_01.mat.meta    |     8 [32m+[m
+ .../Vegetation/Flowers/Materials/Nectar_Red_01.mat |   315 [32m+[m
+ .../Flowers/Materials/Nectar_Red_01.mat.meta       |     8 [32m+[m
+ .../Flowers/Materials/Nectar_White_01.mat          |   315 [32m+[m
+ .../Flowers/Materials/Nectar_White_01.mat.meta     |     8 [32m+[m
+ .../Flowers/Materials/Nectar_Yellow_02.mat         |   315 [32m+[m
+ .../Flowers/Materials/Nectar_Yellow_02.mat.meta    |     8 [32m+[m
+ .../Flowers/Materials/Petal_Purple_01.mat          |   315 [32m+[m
+ .../Flowers/Materials/Petal_Purple_01.mat.meta     |     8 [32m+[m
+ .../Flowers/Materials/Petal_Yellow_01.mat          |   315 [32m+[m
+ .../Flowers/Materials/Petal_Yellow_01.mat.meta     |     8 [32m+[m
+ .../Vegetation/Flowers/Materials/Stem_Green_01.mat |   315 [32m+[m
+ .../Flowers/Materials/Stem_Green_01.mat.meta       |     8 [32m+[m
+ Assets/WoodsLifestyle/Models/Vegetation/Grass.meta |     9 [32m+[m
+ .../Models/Vegetation/Grass/Grass_a_01.fbx         |     3 [32m+[m
+ .../Models/Vegetation/Grass/Grass_a_01.fbx.meta    |    76 [32m+[m
+ .../Models/Vegetation/Grass/Grass_a_04.fbx         |     3 [32m+[m
+ .../Models/Vegetation/Grass/Grass_a_04.fbx.meta    |    76 [32m+[m
+ .../Models/Vegetation/Grass/Grass_b_03.fbx         |     3 [32m+[m
+ .../Models/Vegetation/Grass/Grass_b_03.fbx.meta    |    76 [32m+[m
+ .../Models/Vegetation/Grass/Grass_c_01.fbx         |     3 [32m+[m
+ .../Models/Vegetation/Grass/Grass_c_01.fbx.meta    |    76 [32m+[m
+ .../Models/Vegetation/Grass/Grass_d_02.fbx         |     3 [32m+[m
+ .../Models/Vegetation/Grass/Grass_d_02.fbx.meta    |    76 [32m+[m
+ .../Models/Vegetation/Grass/Materials.meta         |     9 [32m+[m
+ .../Vegetation/Grass/Materials/Grass_Brown_01.mat  |   315 [32m+[m
+ .../Grass/Materials/Grass_Brown_01.mat.meta        |     8 [32m+[m
+ .../Vegetation/Grass/Materials/Grass_Green_01.mat  |   315 [32m+[m
+ .../Grass/Materials/Grass_Green_01.mat.meta        |     8 [32m+[m
+ .../Models/Vegetation/Mushrooms.meta               |     9 [32m+[m
+ .../Models/Vegetation/Mushrooms/Materials.meta     |     9 [32m+[m
+ .../Mushrooms/Materials/Head_Brown_02.mat          |   315 [32m+[m
+ .../Mushrooms/Materials/Head_Brown_02.mat.meta     |     8 [32m+[m
+ .../Vegetation/Mushrooms/Materials/Head_Red_01.mat |   315 [32m+[m
+ .../Mushrooms/Materials/Head_Red_01.mat.meta       |     8 [32m+[m
+ .../Vegetation/Mushrooms/Materials/Head_Red_02.mat |   315 [32m+[m
+ .../Mushrooms/Materials/Head_Red_02.mat.meta       |     8 [32m+[m
+ .../Mushrooms/Materials/StemRing_Blue_01.mat       |   315 [32m+[m
+ .../Mushrooms/Materials/StemRing_Blue_01.mat.meta  |     8 [32m+[m
+ .../Mushrooms/Materials/Stem_Brown_01.mat          |   315 [32m+[m
+ .../Mushrooms/Materials/Stem_Brown_01.mat.meta     |     8 [32m+[m
+ .../Mushrooms/Materials/Stem_White_01.mat          |   315 [32m+[m
+ .../Mushrooms/Materials/Stem_White_01.mat.meta     |     8 [32m+[m
+ .../Models/Vegetation/Mushrooms/Mushroom_a_01.fbx  |     3 [32m+[m
+ .../Vegetation/Mushrooms/Mushroom_a_01.fbx.meta    |    76 [32m+[m
+ .../Vegetation/Mushrooms/Mushroom_b_a_01.fbx       |     3 [32m+[m
+ .../Vegetation/Mushrooms/Mushroom_b_a_01.fbx.meta  |    76 [32m+[m
+ .../Vegetation/Mushrooms/Mushroom_c_a_02.fbx       |     3 [32m+[m
+ .../Vegetation/Mushrooms/Mushroom_c_a_02.fbx.meta  |    76 [32m+[m
+ .../WoodsLifestyle/Models/Vegetation/Plants.meta   |     9 [32m+[m
+ .../Models/Vegetation/Plants/Materials.meta        |     9 [32m+[m
+ .../Vegetation/Plants/Materials/Leave_Green_01.mat |   315 [32m+[m
+ .../Plants/Materials/Leave_Green_01.mat.meta       |     8 [32m+[m
+ .../Models/Vegetation/Plants/Plant_a_01.fbx        |     3 [32m+[m
+ .../Models/Vegetation/Plants/Plant_a_01.fbx.meta   |    76 [32m+[m
+ .../Models/Vegetation/Plants/Plant_b_01.fbx        |     3 [32m+[m
+ .../Models/Vegetation/Plants/Plant_b_01.fbx.meta   |    76 [32m+[m
+ .../Models/Vegetation/Plants/Plant_c_02.fbx        |     3 [32m+[m
+ .../Models/Vegetation/Plants/Plant_c_02.fbx.meta   |    76 [32m+[m
+ .../Models/Vegetation/Plants/Plant_d_02.fbx        |     3 [32m+[m
+ .../Models/Vegetation/Plants/Plant_d_02.fbx.meta   |    76 [32m+[m
+ .../Models/Vegetation/Plants/Plant_d_03.fbx        |     3 [32m+[m
+ .../Models/Vegetation/Plants/Plant_d_03.fbx.meta   |    76 [32m+[m
+ .../WoodsLifestyle/Models/Vegetation/Sticks.meta   |     9 [32m+[m
+ .../Models/Vegetation/Sticks/Materials.meta        |     9 [32m+[m
+ .../Vegetation/Sticks/Materials/StickBrown_01.mat  |   315 [32m+[m
+ .../Sticks/Materials/StickBrown_01.mat.meta        |     8 [32m+[m
+ .../Models/Vegetation/Sticks/Stick_01_a.fbx        |     3 [32m+[m
+ .../Models/Vegetation/Sticks/Stick_01_a.fbx.meta   |    76 [32m+[m
+ .../Models/Vegetation/Sticks/Stick_01_b.fbx        |     3 [32m+[m
+ .../Models/Vegetation/Sticks/Stick_01_b.fbx.meta   |    76 [32m+[m
+ .../Models/Vegetation/Sticks/Stick_02_a.fbx        |     3 [32m+[m
+ .../Models/Vegetation/Sticks/Stick_02_a.fbx.meta   |    76 [32m+[m
+ .../Models/Vegetation/Sticks/Stick_02_b.fbx        |     3 [32m+[m
+ .../Models/Vegetation/Sticks/Stick_02_b.fbx.meta   |    76 [32m+[m
+ .../Models/Vegetation/Sticks/Stick_02_c.fbx        |     3 [32m+[m
+ .../Models/Vegetation/Sticks/Stick_02_c.fbx.meta   |    76 [32m+[m
+ Assets/WoodsLifestyle/Models/Vegetation/Trees.meta |     9 [32m+[m
+ .../Models/Vegetation/Trees/Tree_01_a.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_01_a.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_01_b.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_01_b.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_01_c.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_01_c.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_02_a.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_02_a.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_02_b.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_02_b.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_02_c.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_02_c.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_03_a.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_03_a.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_03_b.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_03_b.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_03_c.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_03_c.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_04_a.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_04_a.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_04_b.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_04_b.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_04_c.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_04_c.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_05_a.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_05_a.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_05_b.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_05_b.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_05_c.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_05_c.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_06_a.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_06_a.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_06_b.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_06_b.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_06_c.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_06_c.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_07_a.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_07_a.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_07_b.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_07_b.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_07_c.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_07_c.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_08_a.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_08_a.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_08_b.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_08_b.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_08_c.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_08_c.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_09_a.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_09_a.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_09_b.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_09_b.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_09_c.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_09_c.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_10_a.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_10_a.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_10_b.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_10_b.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_10_c.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_10_c.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_11_a.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_11_a.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_11_b.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_11_b.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_11_c.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_11_c.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_12_a.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_12_a.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_12_b.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_12_b.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_12_c.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_12_c.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_13_a.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_13_a.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_13_b.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_13_b.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_13_c.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_13_c.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_14_a.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_14_a.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_14_b.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_14_b.fbx.meta     |    76 [32m+[m
+ .../Models/Vegetation/Trees/Tree_14_c.fbx          |     3 [32m+[m
+ .../Models/Vegetation/Trees/Tree_14_c.fbx.meta     |    76 [32m+[m
+ Assets/WoodsLifestyle/NOTES.txt                    |     8 [32m+[m
+ Assets/WoodsLifestyle/NOTES.txt.meta               |     8 [32m+[m
+ Assets/WoodsLifestyle/Prefabs.meta                 |     9 [32m+[m
+ Assets/WoodsLifestyle/Prefabs/Buildings.meta       |     9 [32m+[m
+ .../Prefabs/Buildings/WaterTower_01.prefab         |     3 [32m+[m
+ .../Prefabs/Buildings/WaterTower_01.prefab.meta    |     8 [32m+[m
+ .../Prefabs/Buildings/WaterTower_02.prefab         |     3 [32m+[m
+ .../Prefabs/Buildings/WaterTower_02.prefab.meta    |     8 [32m+[m
+ .../Prefabs/Buildings/WaterTower_03.prefab         |     3 [32m+[m
+ .../Prefabs/Buildings/WaterTower_03.prefab.meta    |     8 [32m+[m
+ Assets/WoodsLifestyle/Prefabs/Cabins.meta          |     9 [32m+[m
+ .../WoodsLifestyle/Prefabs/Cabins/Cabin_01.prefab  |     3 [32m+[m
+ .../Prefabs/Cabins/Cabin_01.prefab.meta            |     8 [32m+[m
+ .../WoodsLifestyle/Prefabs/Cabins/Cabin_02.prefab  |     3 [32m+[m
+ .../Prefabs/Cabins/Cabin_02.prefab.meta            |     8 [32m+[m
+ .../WoodsLifestyle/Prefabs/Cabins/Cabin_03.prefab  |     3 [32m+[m
+ .../Prefabs/Cabins/Cabin_03.prefab.meta            |     8 [32m+[m
+ Assets/WoodsLifestyle/Prefabs/Miscellaneous.meta   |     9 [32m+[m
+ .../Prefabs/Miscellaneous/CampFire_01.prefab       |     3 [32m+[m
+ .../Prefabs/Miscellaneous/CampFire_01.prefab.meta  |     8 [32m+[m
+ .../Prefabs/Miscellaneous/CampFire_02.prefab       |     3 [32m+[m
+ .../Prefabs/Miscellaneous/CampFire_02.prefab.meta  |     8 [32m+[m
+ .../Prefabs/Miscellaneous/LogStand_01.prefab       |     3 [32m+[m
+ .../Prefabs/Miscellaneous/LogStand_01.prefab.meta  |     8 [32m+[m
+ .../Prefabs/Miscellaneous/LogStand_02.prefab       |     3 [32m+[m
+ .../Prefabs/Miscellaneous/LogStand_02.prefab.meta  |     8 [32m+[m
+ .../Miscellaneous/SignPost_Custom_01.prefab        |     3 [32m+[m
+ .../Miscellaneous/SignPost_Custom_01.prefab.meta   |     8 [32m+[m
+ Assets/WoodsLifestyle/TextureSystem.txt            |     5 [32m+[m
+ Assets/WoodsLifestyle/TextureSystem.txt.meta       |     8 [32m+[m
+ Assets/WoodsLifestyle/Textures.meta                |     9 [32m+[m
+ .../WoodsLifestyle/Textures/FullRange_All_01.png   |     3 [32m+[m
+ .../Textures/FullRange_All_01.png.meta             |    56 [32m+[m
+ Assets/WoodsLifestyle/VERSION.txt                  |    14 [32m+[m
+ Assets/WoodsLifestyle/VERSION.txt.meta             |     8 [32m+[m
+ .../.npmignore                                     |     7 [32m+[m
+ .../CHANGELOG.md                                   |   126 [32m+[m
+ .../CHANGELOG.md.meta                              |     7 [32m+[m
+ .../Documentation~/index.md                        |     6 [32m+[m
+ .../LICENSE.md                                     |     5 [32m+[m
+ .../LICENSE.md.meta                                |     7 [32m+[m
+ .../Runtime.meta                                   |     8 [32m+[m
+ .../Runtime/ShaderConfig.cs                        |   128 [32m+[m
+ .../Runtime/ShaderConfig.cs.hlsl                   |    33 [32m+[m
+ .../Runtime/ShaderConfig.cs.hlsl.meta              |     9 [32m+[m
+ .../Runtime/ShaderConfig.cs.meta                   |    12 [32m+[m
+ ...rPipelines.HighDefinition.Config.Runtime.asmdef |    14 [32m+[m
+ ...lines.HighDefinition.Config.Runtime.asmdef.meta |     7 [32m+[m
+ .../Tests.meta                                     |     8 [32m+[m
+ .../Tests/.tests.json                              |     3 [32m+[m
+ .../Tests/Editor.meta                              |     8 [32m+[m
+ .../Tests/Editor/ConfigurationTest.cs              |    13 [32m+[m
+ .../Tests/Editor/ConfigurationTest.cs.meta         |    11 [32m+[m
+ ...elines.HighDefinitionConfig.Editor.Tests.asmdef |    21 [32m+[m
+ ...s.HighDefinitionConfig.Editor.Tests.asmdef.meta |     7 [32m+[m
+ .../package.json                                   |    10 [32m+[m
+ .../package.json.meta                              |     7 [32m+[m
+ Packages/manifest.json                             |    44 [32m+[m
+ Packages/packages-lock.json                        |   488 [32m+[m
+ ProjectSettings/AudioManager.asset                 |    19 [32m+[m
+ ProjectSettings/BurstAotSettings_Android.json      |    17 [32m+[m
+ .../BurstAotSettings_StandaloneWindows.json        |    18 [32m+[m
+ ProjectSettings/BurstAotSettings_WSAPlayer.json    |    18 [32m+[m
+ ProjectSettings/BurstAotSettings_WebGL.json        |    16 [32m+[m
+ ProjectSettings/BurstAotSettings_iOS.json          |    16 [32m+[m
+ ProjectSettings/ClusterInputManager.asset          |     6 [32m+[m
+ ProjectSettings/CommonBurstAotSettings.json        |     6 [32m+[m
+ ProjectSettings/DynamicsManager.asset              |    36 [32m+[m
+ ProjectSettings/EditorBuildSettings.asset          |    15 [32m+[m
+ ProjectSettings/EditorSettings.asset               |    40 [32m+[m
+ ProjectSettings/GraphicsSettings.asset             |    71 [32m+[m
+ ProjectSettings/HDRPProjectSettings.asset          |    29 [32m+[m
+ ProjectSettings/InputManager.asset                 |   487 [32m+[m
+ ProjectSettings/MemorySettings.asset               |    35 [32m+[m
+ ProjectSettings/NavMeshAreas.asset                 |    91 [32m+[m
+ ProjectSettings/PackageManagerSettings.asset       |    35 [32m+[m
+ .../Packages/com.unity.probuilder/Settings.json    |   251 [32m+[m
+ .../com.unity.testtools.codecoverage/Settings.json |     5 [32m+[m
+ ProjectSettings/Physics2DSettings.asset            |    56 [32m+[m
+ ProjectSettings/PresetManager.asset                |     7 [32m+[m
+ ProjectSettings/ProjectSettings.asset              |   932 [32m+[m
+ ProjectSettings/ProjectVersion.txt                 |     2 [32m+[m
+ ProjectSettings/QualitySettings.asset              |   170 [32m+[m
+ ProjectSettings/SceneTemplateSettings.json         |   167 [32m+[m
+ ProjectSettings/ShaderGraphSettings.asset          |    16 [32m+[m
+ ProjectSettings/TagManager.asset                   |    43 [32m+[m
+ ProjectSettings/TimeManager.asset                  |     9 [32m+[m
+ ProjectSettings/UnityConnectSettings.asset         |    36 [32m+[m
+ ProjectSettings/VFXManager.asset                   |    17 [32m+[m
+ ProjectSettings/VersionControlSettings.asset       |     8 [32m+[m
+ ProjectSettings/XRPackageSettings.asset            |     5 [32m+[m
+ ProjectSettings/XRSettings.asset                   |    10 [32m+[m
+ VulkanBuild/FPSDemo.exe                            |   Bin [31m0[m -> [32m666624[m bytes
+ .../Data/Plugins/x86_64/lib_burst_generated.txt    |   144 [32m+[m
+ .../FPSDemo_Data/Managed/Assembly-CSharp.dll       |   Bin [31m0[m -> [32m9728[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/Cinemachine.dll   |   Bin [31m0[m -> [32m309248[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/Mono.Security.dll |   Bin [31m0[m -> [32m241152[m bytes
+ .../Managed/System.ComponentModel.Composition.dll  |   Bin [31m0[m -> [32m257024[m bytes
+ .../FPSDemo_Data/Managed/System.Configuration.dll  |   Bin [31m0[m -> [32m124928[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/System.Core.dll   |   Bin [31m0[m -> [32m1113088[m bytes
+ .../Managed/System.Data.DataSetExtensions.dll      |   Bin [31m0[m -> [32m29696[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/System.Data.dll   |   Bin [31m0[m -> [32m2118656[m bytes
+ .../FPSDemo_Data/Managed/System.Drawing.dll        |   Bin [31m0[m -> [32m489984[m bytes
+ .../Managed/System.EnterpriseServices.dll          |   Bin [31m0[m -> [32m44544[m bytes
+ .../Managed/System.IO.Compression.FileSystem.dll   |   Bin [31m0[m -> [32m18432[m bytes
+ .../FPSDemo_Data/Managed/System.IO.Compression.dll |   Bin [31m0[m -> [32m114688[m bytes
+ .../FPSDemo_Data/Managed/System.Net.Http.dll       |   Bin [31m0[m -> [32m121344[m bytes
+ .../FPSDemo_Data/Managed/System.Numerics.dll       |   Bin [31m0[m -> [32m119296[m bytes
+ .../Managed/System.Runtime.Serialization.dll       |   Bin [31m0[m -> [32m934400[m bytes
+ .../FPSDemo_Data/Managed/System.Runtime.dll        |   Bin [31m0[m -> [32m12288[m bytes
+ .../FPSDemo_Data/Managed/System.Security.dll       |   Bin [31m0[m -> [32m320000[m bytes
+ .../Managed/System.ServiceModel.Internals.dll      |   Bin [31m0[m -> [32m215040[m bytes
+ .../FPSDemo_Data/Managed/System.Transactions.dll   |   Bin [31m0[m -> [32m35328[m bytes
+ .../FPSDemo_Data/Managed/System.Xml.Linq.dll       |   Bin [31m0[m -> [32m136704[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/System.Xml.dll    |   Bin [31m0[m -> [32m3160064[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/System.dll        |   Bin [31m0[m -> [32m2637824[m bytes
+ .../FPSDemo_Data/Managed/Unity.Burst.Unsafe.dll    |   Bin [31m0[m -> [32m5632[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/Unity.Burst.dll   |   Bin [31m0[m -> [32m316416[m bytes
+ .../FPSDemo_Data/Managed/Unity.Mathematics.dll     |   Bin [31m0[m -> [32m741376[m bytes
+ .../FPSDemo_Data/Managed/Unity.ProBuilder.Csg.dll  |   Bin [31m0[m -> [32m18944[m bytes
+ .../Managed/Unity.ProBuilder.KdTree.dll            |   Bin [31m0[m -> [32m20992[m bytes
+ .../Managed/Unity.ProBuilder.Poly2Tri.dll          |   Bin [31m0[m -> [32m39936[m bytes
+ .../FPSDemo_Data/Managed/Unity.ProBuilder.Stl.dll  |   Bin [31m0[m -> [32m14336[m bytes
+ .../FPSDemo_Data/Managed/Unity.ProBuilder.dll      |   Bin [31m0[m -> [32m404480[m bytes
+ .../Managed/Unity.RenderPipelines.Core.Runtime.dll |   Bin [31m0[m -> [32m522752[m bytes
+ .../Unity.RenderPipelines.Core.ShaderLibrary.dll   |   Bin [31m0[m -> [32m4608[m bytes
+ ...nderPipelines.HighDefinition.Config.Runtime.dll |   Bin [31m0[m -> [32m6144[m bytes
+ ...nity.RenderPipelines.HighDefinition.Runtime.dll |   Bin [31m0[m -> [32m4801024[m bytes
+ ...derPipelines.ShaderGraph.ShaderGraphLibrary.dll |   Bin [31m0[m -> [32m4608[m bytes
+ .../FPSDemo_Data/Managed/Unity.TextMeshPro.dll     |   Bin [31m0[m -> [32m380416[m bytes
+ .../FPSDemo_Data/Managed/Unity.Timeline.dll        |   Bin [31m0[m -> [32m127488[m bytes
+ .../Managed/Unity.VisualEffectGraph.Runtime.dll    |   Bin [31m0[m -> [32m100352[m bytes
+ .../Unity.VisualScripting.Antlr3.Runtime.dll       |   Bin [31m0[m -> [32m86016[m bytes
+ .../Managed/Unity.VisualScripting.Core.dll         |   Bin [31m0[m -> [32m623616[m bytes
+ .../Managed/Unity.VisualScripting.Flow.dll         |   Bin [31m0[m -> [32m400896[m bytes
+ .../Managed/Unity.VisualScripting.State.dll        |   Bin [31m0[m -> [32m32256[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.AIModule.dll  |   Bin [31m0[m -> [32m57880[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.ARModule.dll  |   Bin [31m0[m -> [32m21016[m bytes
+ .../Managed/UnityEngine.AccessibilityModule.dll    |   Bin [31m0[m -> [32m23576[m bytes
+ .../Managed/UnityEngine.AndroidJNIModule.dll       |   Bin [31m0[m -> [32m92696[m bytes
+ .../Managed/UnityEngine.AnimationModule.dll        |   Bin [31m0[m -> [32m163864[m bytes
+ .../Managed/UnityEngine.AssetBundleModule.dll      |   Bin [31m0[m -> [32m32792[m bytes
+ .../Managed/UnityEngine.AudioModule.dll            |   Bin [31m0[m -> [32m70680[m bytes
+ .../Managed/UnityEngine.ClothModule.dll            |   Bin [31m0[m -> [32m26136[m bytes
+ .../Managed/UnityEngine.ClusterInputModule.dll     |   Bin [31m0[m -> [32m21528[m bytes
+ .../Managed/UnityEngine.ClusterRendererModule.dll  |   Bin [31m0[m -> [32m22040[m bytes
+ .../Managed/UnityEngine.ContentLoadModule.dll      |   Bin [31m0[m -> [32m26648[m bytes
+ .../Managed/UnityEngine.CoreModule.dll             |   Bin [31m0[m -> [32m1371672[m bytes
+ .../Managed/UnityEngine.CrashReportingModule.dll   |   Bin [31m0[m -> [32m21016[m bytes
+ .../Managed/UnityEngine.DSPGraphModule.dll         |   Bin [31m0[m -> [32m29208[m bytes
+ .../Managed/UnityEngine.DirectorModule.dll         |   Bin [31m0[m -> [32m24600[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.GIModule.dll  |   Bin [31m0[m -> [32m19992[m bytes
+ .../Managed/UnityEngine.GameCenterModule.dll       |   Bin [31m0[m -> [32m39960[m bytes
+ .../Managed/UnityEngine.GridModule.dll             |   Bin [31m0[m -> [32m25112[m bytes
+ .../Managed/UnityEngine.HotReloadModule.dll        |   Bin [31m0[m -> [32m19992[m bytes
+ .../Managed/UnityEngine.IMGUIModule.dll            |   Bin [31m0[m -> [32m189464[m bytes
+ .../Managed/UnityEngine.ImageConversionModule.dll  |   Bin [31m0[m -> [32m24088[m bytes
+ .../Managed/UnityEngine.InputLegacyModule.dll      |   Bin [31m0[m -> [32m38936[m bytes
+ .../Managed/UnityEngine.InputModule.dll            |   Bin [31m0[m -> [32m23576[m bytes
+ .../Managed/UnityEngine.JSONSerializeModule.dll    |   Bin [31m0[m -> [32m22040[m bytes
+ .../Managed/UnityEngine.LocalizationModule.dll     |   Bin [31m0[m -> [32m21016[m bytes
+ .../Managed/UnityEngine.NVIDIAModule.dll           |   Bin [31m0[m -> [32m33816[m bytes
+ .../Managed/UnityEngine.ParticleSystemModule.dll   |   Bin [31m0[m -> [32m156184[m bytes
+ .../UnityEngine.PerformanceReportingModule.dll     |   Bin [31m0[m -> [32m20504[m bytes
+ .../Managed/UnityEngine.Physics2DModule.dll        |   Bin [31m0[m -> [32m141336[m bytes
+ .../Managed/UnityEngine.PhysicsModule.dll          |   Bin [31m0[m -> [32m138264[m bytes
+ .../Managed/UnityEngine.ProfilerModule.dll         |   Bin [31m0[m -> [32m19992[m bytes
+ .../Managed/UnityEngine.PropertiesModule.dll       |   Bin [31m0[m -> [32m151576[m bytes
+ ...imeInitializeOnLoadManagerInitializerModule.dll |   Bin [31m0[m -> [32m19992[m bytes
+ .../Managed/UnityEngine.ScreenCaptureModule.dll    |   Bin [31m0[m -> [32m21016[m bytes
+ .../Managed/UnityEngine.SharedInternalsModule.dll  |   Bin [31m0[m -> [32m32792[m bytes
+ .../Managed/UnityEngine.SpriteMaskModule.dll       |   Bin [31m0[m -> [32m21528[m bytes
+ .../Managed/UnityEngine.SpriteShapeModule.dll      |   Bin [31m0[m -> [32m26136[m bytes
+ .../Managed/UnityEngine.StreamingModule.dll        |   Bin [31m0[m -> [32m20504[m bytes
+ .../Managed/UnityEngine.SubstanceModule.dll        |   Bin [31m0[m -> [32m24600[m bytes
+ .../Managed/UnityEngine.SubsystemsModule.dll       |   Bin [31m0[m -> [32m34840[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.TLSModule.dll |   Bin [31m0[m -> [32m26648[m bytes
+ .../Managed/UnityEngine.TerrainModule.dll          |   Bin [31m0[m -> [32m100888[m bytes
+ .../Managed/UnityEngine.TerrainPhysicsModule.dll   |   Bin [31m0[m -> [32m21016[m bytes
+ .../UnityEngine.TextCoreFontEngineModule.dll       |   Bin [31m0[m -> [32m72216[m bytes
+ .../UnityEngine.TextCoreTextEngineModule.dll       |   Bin [31m0[m -> [32m249880[m bytes
+ .../Managed/UnityEngine.TextRenderingModule.dll    |   Bin [31m0[m -> [32m38936[m bytes
+ .../Managed/UnityEngine.TilemapModule.dll          |   Bin [31m0[m -> [32m46616[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.UI.dll        |   Bin [31m0[m -> [32m264704[m bytes
+ .../Managed/UnityEngine.UIElementsModule.dll       |   Bin [31m0[m -> [32m1513496[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.UIModule.dll  |   Bin [31m0[m -> [32m36376[m bytes
+ .../Managed/UnityEngine.UmbraModule.dll            |   Bin [31m0[m -> [32m19992[m bytes
+ .../UnityEngine.UnityAnalyticsCommonModule.dll     |   Bin [31m0[m -> [32m21016[m bytes
+ .../Managed/UnityEngine.UnityAnalyticsModule.dll   |   Bin [31m0[m -> [32m44568[m bytes
+ .../Managed/UnityEngine.UnityConnectModule.dll     |   Bin [31m0[m -> [32m21528[m bytes
+ .../Managed/UnityEngine.UnityCurlModule.dll        |   Bin [31m0[m -> [32m21528[m bytes
+ .../UnityEngine.UnityTestProtocolModule.dll        |   Bin [31m0[m -> [32m19992[m bytes
+ ...nityEngine.UnityWebRequestAssetBundleModule.dll |   Bin [31m0[m -> [32m23064[m bytes
+ .../UnityEngine.UnityWebRequestAudioModule.dll     |   Bin [31m0[m -> [32m22552[m bytes
+ .../Managed/UnityEngine.UnityWebRequestModule.dll  |   Bin [31m0[m -> [32m57880[m bytes
+ .../UnityEngine.UnityWebRequestTextureModule.dll   |   Bin [31m0[m -> [32m21528[m bytes
+ .../UnityEngine.UnityWebRequestWWWModule.dll       |   Bin [31m0[m -> [32m31256[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.VFXModule.dll |   Bin [31m0[m -> [32m58392[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.VRModule.dll  |   Bin [31m0[m -> [32m26136[m bytes
+ .../Managed/UnityEngine.VehiclesModule.dll         |   Bin [31m0[m -> [32m24088[m bytes
+ .../Managed/UnityEngine.VideoModule.dll            |   Bin [31m0[m -> [32m40984[m bytes
+ .../Managed/UnityEngine.VirtualTexturingModule.dll |   Bin [31m0[m -> [32m35352[m bytes
+ .../Managed/UnityEngine.WindModule.dll             |   Bin [31m0[m -> [32m21016[m bytes
+ .../FPSDemo_Data/Managed/UnityEngine.XRModule.dll  |   Bin [31m0[m -> [32m70680[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/UnityEngine.dll   |   Bin [31m0[m -> [32m125464[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/mscorlib.dll      |   Bin [31m0[m -> [32m4631552[m bytes
+ VulkanBuild/FPSDemo_Data/Managed/netstandard.dll   |   Bin [31m0[m -> [32m90112[m bytes
+ .../Plugins/x86_64/lib_burst_generated.dll         |   Bin [31m0[m -> [32m126976[m bytes
+ .../FPSDemo_Data/Resources/unity default resources |   Bin [31m0[m -> [32m1548352[m bytes
+ .../FPSDemo_Data/Resources/unity_builtin_extra     |   Bin [31m0[m -> [32m582148[m bytes
+ .../FPSDemo_Data/RuntimeInitializeOnLoads.json     |     1 [32m+[m
+ VulkanBuild/FPSDemo_Data/ScriptingAssemblies.json  |     1 [32m+[m
+ VulkanBuild/FPSDemo_Data/app.info                  |     2 [32m+[m
+ VulkanBuild/FPSDemo_Data/boot.config               |     5 [32m+[m
+ VulkanBuild/FPSDemo_Data/globalgamemanagers        |   Bin [31m0[m -> [32m173312[m bytes
+ VulkanBuild/FPSDemo_Data/globalgamemanagers.assets |   Bin [31m0[m -> [32m129406296[m bytes
+ .../FPSDemo_Data/globalgamemanagers.assets.resS    |   Bin [31m0[m -> [32m14366576[m bytes
+ VulkanBuild/FPSDemo_Data/level0                    |   Bin [31m0[m -> [32m66228[m bytes
+ VulkanBuild/FPSDemo_Data/resources.assets          |   Bin [31m0[m -> [32m619384[m bytes
+ VulkanBuild/FPSDemo_Data/resources.assets.resS     |   Bin [31m0[m -> [32m5250336[m bytes
+ VulkanBuild/FPSDemo_Data/resources.resource        |   Bin [31m0[m -> [32m1577888[m bytes
+ VulkanBuild/FPSDemo_Data/sharedassets0.assets      |   Bin [31m0[m -> [32m3655284[m bytes
+ VulkanBuild/FPSDemo_Data/sharedassets0.assets.resS |   Bin [31m0[m -> [32m4328096[m bytes
+ .../EmbedRuntime/MonoPosixHelper.dll               |   Bin [31m0[m -> [32m610840[m bytes
+ .../EmbedRuntime/mono-2.0-bdwgc.dll                |   Bin [31m0[m -> [32m7750168[m bytes
+ .../etc/mono/2.0/Browsers/Compat.browser           |    42 [32m+[m
+ .../etc/mono/2.0/DefaultWsdlHelpGenerator.aspx     |  1901 [32m+++[m
+ .../MonoBleedingEdge/etc/mono/2.0/machine.config   |   280 [32m+[m
+ .../MonoBleedingEdge/etc/mono/2.0/settings.map     |    48 [32m+[m
+ .../MonoBleedingEdge/etc/mono/2.0/web.config       |   153 [32m+[m
+ .../etc/mono/4.0/Browsers/Compat.browser           |    42 [32m+[m
+ .../etc/mono/4.0/DefaultWsdlHelpGenerator.aspx     |  1901 [32m+++[m
+ .../MonoBleedingEdge/etc/mono/4.0/machine.config   |   307 [32m+[m
+ .../MonoBleedingEdge/etc/mono/4.0/settings.map     |    48 [32m+[m
+ .../MonoBleedingEdge/etc/mono/4.0/web.config       |   252 [32m+[m
+ .../etc/mono/4.5/Browsers/Compat.browser           |    42 [32m+[m
+ .../etc/mono/4.5/DefaultWsdlHelpGenerator.aspx     |  1901 [32m+++[m
+ .../MonoBleedingEdge/etc/mono/4.5/machine.config   |   310 [32m+[m
+ .../MonoBleedingEdge/etc/mono/4.5/settings.map     |    48 [32m+[m
+ .../MonoBleedingEdge/etc/mono/4.5/web.config       |   252 [32m+[m
+ VulkanBuild/MonoBleedingEdge/etc/mono/browscap.ini | 16979 [32m+++++++++++++++++++[m
+ VulkanBuild/MonoBleedingEdge/etc/mono/config       |    53 [32m+[m
+ .../MonoBleedingEdge/etc/mono/mconfig/config.xml   |   616 [32m+[m
+ VulkanBuild/UnityCrashHandler64.exe                |   Bin [31m0[m -> [32m1114136[m bytes
+ VulkanBuild/UnityPlayer.dll                        |   Bin [31m0[m -> [32m30706200[m bytes
+ 1160 files changed, 89198 insertions(+)

@@ -91,7 +91,7 @@ Material:
     - _StencilWriteMaskDistortionVec: 4
     - _StencilWriteMaskMV: 43
     - _SurfaceType: 0
-    - _Transition: 100
+    - _Transition: 0.5
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0
@@ -111,5 +111,5 @@ Material:
     m_Colors:
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Tint: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 0}
+    - _Tint: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 0}
   m_BuildTextureStacks: []
