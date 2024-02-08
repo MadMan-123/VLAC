@@ -3,46 +3,63 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+//a serializable class to store the input , actions and a index to the action to execute like a state
+[Serializable]
+public struct InputAction
+{
+	public string name;
+	public List<UnityEvent> ActionsDown;
+	public int ActionIndex;
+}
+
+
 public class PlayerInputManager : MonoBehaviour
 {
 	//hash map
-	Dictionary<string, List<UnityEvent>> InputMap = new Dictionary<string, List<UnityEvent>>();
+	private readonly Dictionary<string, InputAction> inputMap = new Dictionary<string, InputAction>();
 
-	//Input Paramaters
-	public List<UnityEvent> FireActions;
+	public List<InputAction> InputActions;
 
 	//caches
 	string _InputString = "";
-	List<UnityEvent> _ActionBuffer;	
-    	
+	InputAction _ActionBuffer;
+
+
 	
-		void Start()
+	void Start()
+	{
+		for (int i = 0; i < InputActions.Count; i++)
 		{
-			AddInput("Fire1",FireActions); 
+			_ActionBuffer = InputActions[i];		
+			AddInput(
+				_ActionBuffer.name,
+				_ActionBuffer
+				);
 		}
+	}
 
     	void Update()
     	{
-		//get the Key Value Paring from Input Map
-		foreach(var kvp in InputMap)
-		{
-			//set the caches
-			_InputString = kvp.Key;
-			_ActionBuffer = kvp.Value;
-			
-			//ask if the input is being pressed
-			if(Input.GetButtonDown(_InputString))
+			//get the Key Value Paring from Input Map
+			foreach(var kvp in inputMap)
 			{
-				//execute actions given 
-				HandleActions(_ActionBuffer);
-			}
-		}	
+				//set the caches
+				_InputString = kvp.Key;
+				_ActionBuffer = kvp.Value;
+				
+				//ask if the input is being pressed
+				if(Input.GetButtonDown(_InputString))
+				{
+					//execute actions given 
+					HandleActions(_ActionBuffer.Actions);
+				}
+			}	
     	}
 
-	void HandleActions(List<UnityEvent> ActionBuffer)
+	void HandleActions(List<UnityEvent> actionBuffer)
 	{
 		//for each action
-		foreach(var action in ActionBuffer)
+		foreach(var action in actionBuffer)
 		{
 			//invoke
 			action?.Invoke();
@@ -50,10 +67,10 @@ public class PlayerInputManager : MonoBehaviour
 
 	}
 
-	void AddInput(string InputName, List<UnityEvent> ActionBuffer)
+	void AddInput(string inputName, InputAction action)
 	{
 		
-		if(InputMap.ContainsKey(InputName))
+		if(inputMap.ContainsKey(inputName))
 		{
 			//input mapping exists
 			return;
@@ -61,7 +78,7 @@ public class PlayerInputManager : MonoBehaviour
 
 		//input dosent exist
 
-		InputMap.Add(InputName, ActionBuffer);
+		inputMap.Add(inputName, action);
 	
 	}
 

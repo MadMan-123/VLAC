@@ -3,22 +3,15 @@ using UnityEngine;
 
 public class Weapon : Item
 {
-	protected WeaponType type;
-	protected int Damage;
-	protected float Range;
-	protected float AttackDelay;
-	protected float Force;
+	public WeaponType Type;
+	public int Damage;
+	public float Range;
+	public float AttackDelay;
+	public float Force;
 	protected bool CanAttack = true;
 
-	public override void Use()
-	{
-		OnAttack();
-	}
 
-	protected virtual void OnAttack()
-	{
-		
-	}
+
 }
 
 public enum WeaponType
