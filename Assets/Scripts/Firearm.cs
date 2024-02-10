@@ -5,20 +5,22 @@ using Deus;
 
 public class Firearm : Weapon
 {
+    [SerializeField] private FireArmType fireArmType;
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] ParticleSystem muzzleFlash;
-    [SerializeField] private FireArmType fireArmType;
     private ObjectPool bulletPool;
     private float timeToCollect;
 
-  
+    [SerializeField] private float recoilForce = 1.0f;
+    [SerializeField] private CinemachineImpulseSource impulseSource;
+
+
     public float aimFOV = 30f; // Field of view when aiming
-    public float hipShotFOV = 60f; // Field of view for hip shot
-    private Vector3 originalPosition;
-    private Vector3 BulletFirePos;
+    public float hipShotFOV = 100f; // Field of view for hip shot
+    private Vector3 bulletFirePos;
     private int activeShotCount = 0;
-    private int maxActiveShots = 5; // Maximum number of simultaneous shots
+    private readonly int maxActiveShots = 5; // Maximum number of simultaneous shots
 
     private void Start()
     {
@@ -43,9 +45,9 @@ public class Firearm : Weapon
         if (Physics.Raycast(firePoint.position, firePoint.forward, out hit, 0.1f))
         {
             //break the Fire method if the raycast hits anything in a 0.1f distance so the gun doesn't shoot itself
-#if UNITY_EDITOR
+            #if UNITY_EDITOR
             Debug.Log("Gun Is In something");
-#endif
+            #endif
             CanAttack = true;
             yield break;
         }
@@ -65,9 +67,24 @@ public class Firearm : Weapon
 
         //play the muzzle flash
         muzzleFlash.Play();
+    
+        //recoil
+        ApplyRecoil();
+        //play the sound MusketShot
+        AudioManager.PlayAudioClip("MusketShot", firePoint.position, 10f);
         //recoil
         yield return new WaitForSeconds(AttackDelay);
         CanAttack = true;
+    }
+ 
+    public void ApplyRecoil()
+    {
+      impulseSource.GenerateImpulseWithVelocity(firePoint.forward * recoilForce);
+    }
+
+    private void StopRecoil()
+    {
+    
     }
 
     private void SpreadShot(int shotAmount = 5)
@@ -113,7 +130,8 @@ public class Firearm : Weapon
         {
             tr.enabled = true;
         }
-
+   
+        
         yield return new WaitForSeconds(timeToCollect);
         // Collect the bullet back
         rb.velocity = Vector3.zero;
@@ -129,11 +147,11 @@ public class Firearm : Weapon
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(firePoint.position, 0.05f);
         Gizmos.color = Color.cyan;
-        BulletFirePos = firePoint.position + (firePoint.forward / 10);
-        Gizmos.DrawWireSphere(BulletFirePos, 0.025f);
+        bulletFirePos = firePoint.position + (firePoint.forward / 10);
+        Gizmos.DrawWireSphere(bulletFirePos, 0.025f);
 
         //draw fire direction
-        Gizmos.DrawRay(BulletFirePos, firePoint.forward);
+        Gizmos.DrawRay(bulletFirePos, firePoint.forward);
     }
 
     

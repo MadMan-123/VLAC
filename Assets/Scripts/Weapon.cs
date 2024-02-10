@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Weapon : Item
 {
-	public WeaponType Type;
 	public int Damage;
 	public float Range;
 	public float AttackDelay;

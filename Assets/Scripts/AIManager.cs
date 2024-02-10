@@ -7,7 +7,8 @@ public class AIManager : MonoBehaviour
 {
     static readonly int prefabCount = 5;
     private ObjectPool[] AIPools = new ObjectPool[prefabCount];
-    [SerializeField] private static GameObject[] AIPrefabs = new GameObject[prefabCount];
+    [SerializeField] private GameObject[] AIPrefabs = new GameObject[prefabCount];
+    [SerializeField] private List<Transform> points = new List<Transform>();
     void Start()
     {
         for(int i = 0; i < prefabCount; i++)
