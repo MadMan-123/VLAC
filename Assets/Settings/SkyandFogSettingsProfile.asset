@@ -161,13 +161,13 @@ MonoBehaviour:
     m_Value: 1
   colorMode:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   color:
     m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 1}
   tint:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
   maxFogDistance:
     m_OverrideState: 1
     m_Value: 500
@@ -188,7 +188,7 @@ MonoBehaviour:
     m_Value: 1000
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 5
+    m_Value: 1
   enableVolumetricFog:
     m_OverrideState: 1
     m_Value: 1
@@ -203,7 +203,7 @@ MonoBehaviour:
     m_Value: 2000
   denoisingMode:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 3
   anisotropy:
     m_OverrideState: 1
     m_Value: 0.65
@@ -325,14 +325,14 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   compensation:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   limitMin:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: -0.01692012
   limitMax:
     m_OverrideState: 1
-    m_Value: 14
+    m_Value: 15
   curveMap:
     m_OverrideState: 0
     m_Value:

@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[Serializable]
+public struct ActionUD
+{
+	public UnityEvent ActionUp;
+	public UnityEvent ActionDown;
+}
+
 //a serializable class to store the input , actions and a index to the action to execute like a state
 [Serializable]
 public struct InputAction
 {
 	public string name;
-	public List<UnityEvent> ActionsDown;
+	public List<ActionUD> Actions;
 	public int ActionIndex;
 }
 
@@ -26,7 +33,7 @@ public class PlayerInputManager : MonoBehaviour
 
 
 	
-	void Start()
+	void Awake()
 	{
 		for (int i = 0; i < InputActions.Count; i++)
 		{
@@ -36,6 +43,12 @@ public class PlayerInputManager : MonoBehaviour
 				_ActionBuffer
 				);
 		}
+
+#if UNITY_EDITOR
+		//Debugging
+		//log the ammount of input actions assigned
+		Debug.Log($"Input Actions: {InputActions.Count} set");
+#endif
 	}
 
     	void Update()
@@ -50,21 +63,47 @@ public class PlayerInputManager : MonoBehaviour
 				//ask if the input is being pressed
 				if(Input.GetButtonDown(_InputString))
 				{
+					
 					//execute actions given 
-					HandleActions(_ActionBuffer.Actions);
+					HandleActions(_ActionBuffer.Actions,InputType.Down);
+				}
+				else if (Input.GetButtonUp(_InputString))
+				{
+					//execute actions given 
+					HandleActions(_ActionBuffer.Actions,InputType.Up);
 				}
 			}	
     	}
 
-	void HandleActions(List<UnityEvent> actionBuffer)
+	void HandleActions(List<ActionUD> actionBuffer,InputType type)
 	{
-		//for each action
-		foreach(var action in actionBuffer)
+		for(int i = 0; i < actionBuffer.Count; i++)
 		{
-			//invoke
-			action?.Invoke();
-		}
+			//if the action index is null dont execute
 
+			switch (type)
+			{
+				case InputType.Up:
+					if(actionBuffer[i].ActionUp == null) continue;
+					actionBuffer[i].ActionUp?.Invoke();
+
+					break;
+				case InputType.Down: 
+					if(actionBuffer[i].ActionDown == null) continue;
+					//invoke
+					actionBuffer[i].ActionDown?.Invoke();
+					
+					break;
+			}
+		}
+		
+		
+
+	}
+	public enum InputType
+	{
+		Up,
+		Down
 	}
 
 	void AddInput(string inputName, InputAction action)

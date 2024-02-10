@@ -51,7 +51,9 @@ namespace Deus
 
             // If all objects are in use, create a new one and add it to the pool
             GameObject newObj = CreateObjectInPool();
+            #if UNITY_EDITOR
             Debug.Log($"Pool Added: {newObj.name}, Pool Size: {objects.Count} : +1");
+            #endif
             newObj.SetActive(true);
             return newObj;
         }

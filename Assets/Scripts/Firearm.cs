@@ -8,53 +8,28 @@ public class Firearm : Weapon
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] ParticleSystem muzzleFlash;
-    [SerializeField] ParticleSystem hitEffect;
     [SerializeField] private FireArmType fireArmType;
     private ObjectPool bulletPool;
     private float timeToCollect;
 
-    public CinemachineVirtualCamera virtualCamera;
-    public float recoilAmount = 1f;
-    public float recoilSpeed = 1f;
-    public Transform aimPosition; // Position to aim at
-    public Transform hipShotPosition; // Position for hip shot
+  
     public float aimFOV = 30f; // Field of view when aiming
     public float hipShotFOV = 60f; // Field of view for hip shot
-    public float aimSpeed = 5f; // Speed of lerping to aim position
-    public float hipShotSpeed = 5f; // Speed of lerping to hip shot position
     private Vector3 originalPosition;
     private Vector3 BulletFirePos;
+    private int activeShotCount = 0;
+    private int maxActiveShots = 5; // Maximum number of simultaneous shots
 
     private void Start()
     {
         timeToCollect = Range / Force;
         bulletPool = new ObjectPool(bulletPrefab, 3, firePoint);
-        originalPosition = virtualCamera.transform.localPosition;
     }
 
-    private IEnumerator RecoilCoroutine()
-    {
-        float elapsed = 0f;
-        while (elapsed < recoilSpeed)
-        {
-            // Calculate recoil position based on elapsed time and recoil amount
-            float recoilFraction = Mathf.SmoothStep(0f, 1f, elapsed / recoilSpeed);
-            Vector3 recoilOffset = Vector3.up * recoilAmount * recoilFraction;
-
-            // Apply recoil to camera position
-            virtualCamera.transform.localPosition = originalPosition + recoilOffset;
-
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        // Reset camera position after recoil
-        virtualCamera.transform.localPosition = originalPosition;
-    }
 
     public override void Use()
     {
-        if(CanAttack)
+        if (CanAttack)
             StartCoroutine(Fire());
     }
 
@@ -62,51 +37,69 @@ public class Firearm : Weapon
     {
         //flag
         CanAttack = false;
-        
+
         //raycast to detect if the gun is hitting something
         RaycastHit hit;
         if (Physics.Raycast(firePoint.position, firePoint.forward, out hit, 0.1f))
         {
             //break the Fire method if the raycast hits anything in a 0.1f distance so the gun doesn't shoot itself
+#if UNITY_EDITOR
+            Debug.Log("Gun Is In something");
+#endif
+            CanAttack = true;
             yield break;
         }
-        
+
         //switch behaviour of firearm
         switch (fireArmType)
         {
             case FireArmType.Rifle:
             case FireArmType.Pistol:
-                StartCoroutine(NormalShot());
+                StartCoroutine(FireSingleShot(firePoint.forward * Force));
                 break;
             case FireArmType.Blunderbuss:
                 SpreadShot();
 
                 break;
         }
+
         //play the muzzle flash
         muzzleFlash.Play();
         //recoil
-        StartCoroutine(RecoilCoroutine());
         yield return new WaitForSeconds(AttackDelay);
         CanAttack = true;
     }
 
-    private void SpreadShot()
+    private void SpreadShot(int shotAmount = 5)
     {
+        //shoot the ammount of bullets into a random spread
+        //create a random spread using the forward direction of the fire point as the base
+        for (int i = 0; i < shotAmount; i++)
+        {
+            // Generate a random direction in a spherical pattern
+            Vector3 spreadDirection = firePoint.forward + Random.insideUnitSphere * 0.1f; // Adjust the spread factor (0.1f) as needed
+
+            // Normalize the direction to ensure consistent bullet force
+            spreadDirection.Normalize();
+
+            // Fire a bullet using the spread direction
+            StartCoroutine(FireSingleShot(spreadDirection * Force));
+        }
         
     }
 
     private GameObject cache;
-    private IEnumerator NormalShot()
-    {
-        //use the bullet the bullet
-        cache = bulletPool.GetObject(firePoint);
-        //add velocity as the forward direction
-        Vector3 vel = firePoint.forward * Force;
 
+    // Use this method to fire a single shot
+    private IEnumerator FireSingleShot(Vector3 vel)
+    {
+        activeShotCount++; // Increment active shot count
+        // Use the bullet the bullet
+        cache = bulletPool.GetObject(firePoint);
+        // Add velocity as the forward direction
         if (cache.TryGetComponent<Rigidbody>(out var rb))
         {
-            rb.velocity += vel;
+            rb.velocity = vel;
         }
 
         if (cache.TryGetComponent<Bullet>(out var bl))
@@ -114,7 +107,7 @@ public class Firearm : Weapon
             bl.Pool = bulletPool;
         }
 
-        yield return new WaitForSeconds(0.001f);
+        yield return new WaitForSeconds(0.0005f);
 
         if (cache.TryGetComponent<TrailRenderer>(out var tr))
         {
@@ -122,11 +115,12 @@ public class Firearm : Weapon
         }
 
         yield return new WaitForSeconds(timeToCollect);
-        //collect the bullet back
+        // Collect the bullet back
         rb.velocity = Vector3.zero;
-
         tr.enabled = false;
         bulletPool.ReturnObject(cache);
+
+        activeShotCount--; // Decrement active shot count
     }
 
     private void OnDrawGizmos()
@@ -137,43 +131,38 @@ public class Firearm : Weapon
         Gizmos.color = Color.cyan;
         BulletFirePos = firePoint.position + (firePoint.forward / 10);
         Gizmos.DrawWireSphere(BulletFirePos, 0.025f);
-        
+
         //draw fire direction
         Gizmos.DrawRay(BulletFirePos, firePoint.forward);
     }
 
-    // Method to aim the firearm
-    public void Aim()
+    
+    
+    // Coroutine to wait until the number of active shots decreases
+    private IEnumerator WaitForActiveShots()
     {
-        StartCoroutine(LerpToPosition(aimPosition.position, aimFOV, aimSpeed));
-    }
-
-    // Method for hip shot
-    public void HipShot()
-    {
-        StartCoroutine(LerpToPosition(hipShotPosition.position, hipShotFOV, hipShotSpeed));
-    }
-
-    // Lerps the camera position and FOV to the target position and FOV
-    private IEnumerator LerpToPosition(Vector3 targetPosition, float targetFOV, float speed)
-    {
-        float elapsedTime = 0f;
-        Vector3 startPosition = virtualCamera.transform.localPosition;
-        
-
-        while (elapsedTime < 1f)
+        while (activeShotCount >= maxActiveShots)
         {
-            elapsedTime += Time.deltaTime * speed;
-            virtualCamera.transform.localPosition = Vector3.Lerp(startPosition, targetPosition, elapsedTime);
-            //virtualCamera.m_Lens.FieldOfView = Mathf.Lerp(startFOV, targetFOV, elapsedTime);
             yield return null;
         }
     }
-}
+    
+    public enum FireArmType
+    {
+        Pistol = 0,
+        Rifle = 1,
+        Blunderbuss = 2
+    };
+    
 
-public enum FireArmType
-{
-    Pistol = 0,
-    Rifle = 1,
-    Blunderbuss = 2
+
+    // Override the OnDisable method
+    private void OnDisable()
+    {
+        //hack: set can attack to true
+        CanAttack = true;
+    }
+
+    
+    
 }

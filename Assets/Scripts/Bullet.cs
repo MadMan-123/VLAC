@@ -18,6 +18,6 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         rb.velocity = Vector3.zero;
-        Pool.ReturnObject(gameObject);
+        //Pool.ReturnObject(gameObject);
     }
 }
