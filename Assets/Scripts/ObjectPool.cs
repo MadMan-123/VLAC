@@ -10,7 +10,12 @@ namespace Deus
         private List<GameObject> objects = new List<GameObject>();
         private GameObject prefab;
 
+        public int Count => objects.Count;
         private Transform pTransform;
+
+        public bool Dynamic = true;
+        public bool SetActiveOnGet = true;
+
         // Constructor to initialize the pool with a prefab, initial size, and parent transform
         public ObjectPool(GameObject prefab, int initialSize, Transform parent)
         {
@@ -37,31 +42,41 @@ namespace Deus
         }
 
         // Get an inactive object from the pool
-        public GameObject GetObject(Transform parent)
+        public GameObject GetObject()
         {
             foreach (var obj in objects)
             {
                 if (!obj.activeInHierarchy)
                 {
-                    obj.SetActive(true);
-                    obj.transform.position = parent.position;
+                    if(SetActiveOnGet)
+                        obj.SetActive(true);
                     return obj;
                 }
             }
 
-            // If all objects are in use, create a new one and add it to the pool
-            GameObject newObj = CreateObjectInPool();
-            #if UNITY_EDITOR
-            Debug.Log($"Pool Added: {newObj.name}, Pool Size: {objects.Count} : +1");
-            #endif
-            newObj.SetActive(true);
-            return newObj;
+            if (Dynamic)
+            {
+                // If all objects are in use, create a new one and add it to the pool
+                GameObject newObj = CreateObjectInPool();
+                #if UNITY_EDITOR
+                    Debug.Log($"Pool Added: {newObj.name}, Pool Size: {objects.Count} : +1");
+                #endif
+                newObj.SetActive(true);
+                return newObj;
+            }
+
+            return null;
+        }
+        
+        
+        public List<GameObject> GetAllObjects()
+        {
+            return objects;
         }
 
         // Return an object to the pool by deactivating it
         public void ReturnObject(GameObject obj)
         {
-            obj.transform.position = pTransform.position;
 
             obj.SetActive(false);
         }

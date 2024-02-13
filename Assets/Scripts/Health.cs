@@ -13,6 +13,12 @@ public class Health : MonoBehaviour
 	
 	public Action OnDeath;
 	public Action OnDamage;
+
+	private void Start()
+	{
+		OnDeath += Death;
+	}
+
 	//Heal
 	public void Heal(int HealBy)
 	{
@@ -56,5 +62,11 @@ public class Health : MonoBehaviour
 			Debug.Log($"{gameObject.name} health has been set to: {CurrentHealth}");
 
 		#endif
+	}
+
+	void Death()
+	{
+		//set object to inactive
+		gameObject.SetActive(false);
 	}
 }

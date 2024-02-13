@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Cinemachine;
 using Deus;
+using Random = UnityEngine.Random;
 
 public class Firearm : Weapon
 {
@@ -112,7 +114,8 @@ public class Firearm : Weapon
     {
         activeShotCount++; // Increment active shot count
         // Use the bullet the bullet
-        cache = bulletPool.GetObject(firePoint);
+        cache = bulletPool.GetObject();
+        cache.transform.position = firePoint.position;
         // Add velocity as the forward direction
         if (cache.TryGetComponent<Rigidbody>(out var rb))
         {
@@ -122,6 +125,7 @@ public class Firearm : Weapon
         if (cache.TryGetComponent<Bullet>(out var bl))
         {
             bl.Pool = bulletPool;
+            bl.Damage = Damage;
         }
 
         yield return new WaitForSeconds(0.0005f);
@@ -181,6 +185,7 @@ public class Firearm : Weapon
         CanAttack = true;
     }
 
-    
-    
+    private void Update()
+    {
+    }
 }

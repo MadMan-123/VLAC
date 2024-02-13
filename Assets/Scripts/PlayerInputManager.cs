@@ -23,10 +23,10 @@ public struct InputAction
 public class PlayerInputManager : MonoBehaviour
 {
 	//hash map
-	private readonly Dictionary<string, InputAction> inputMap = new Dictionary<string, InputAction>();
+	private Dictionary<string, InputAction> inputMap = new Dictionary<string, InputAction>();
 
 	public List<InputAction> InputActions;
-
+	
 	//caches
 	string _InputString = "";
 	InputAction _ActionBuffer;
@@ -44,11 +44,11 @@ public class PlayerInputManager : MonoBehaviour
 				);
 		}
 
-#if UNITY_EDITOR
+		#if UNITY_EDITOR
 		//Debugging
 		//log the ammount of input actions assigned
 		Debug.Log($"Input Actions: {InputActions.Count} set");
-#endif
+		#endif
 	}
 
     	void Update()
@@ -75,6 +75,25 @@ public class PlayerInputManager : MonoBehaviour
 			}	
     	}
 
+	    public void SetInputIndex(string inputName, int index)
+	    {
+		    // Check if the input action exists in the dictionary
+		    if (inputMap.ContainsKey(inputName))
+		    {
+			    // Get the input action
+			    InputAction inputAction = inputMap[inputName];
+
+			    // Update the action index
+			    inputAction.ActionIndex = index;
+
+			    // Update the input action in the dictionary
+			    inputMap[inputName] = inputAction;
+		    }
+		    else
+		    {
+			    Debug.LogWarning($"Input action '{inputName}' not found in the input map.");
+		    }
+	    }
 	void HandleActions(List<ActionUD> actionBuffer,InputType type)
 	{
 		for(int i = 0; i < actionBuffer.Count; i++)

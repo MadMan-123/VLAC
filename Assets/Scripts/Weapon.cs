@@ -8,10 +8,13 @@ public class Weapon : Item
 	public float AttackDelay;
 	public float Force;
 	protected bool CanAttack = true;
+	
 
-
+	
 
 }
+
+
 
 public enum WeaponType
 {

@@ -76,10 +76,12 @@ Material:
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 0
+    - _DstBlend2: 0
     - _EnableBlendModePreserveSpecularLighting: 0
     - _EnableFogOnTransparent: 1
     - _ExcludeFromTUAndAA: 0
     - _OpaqueCullMode: 2
+    - _PerPixelSorting: 0
     - _RenderQueueType: 1
     - _SrcBlend: 1
     - _StencilRef: 0
@@ -107,9 +109,10 @@ Material:
     - _noiseScale: 35
     - _noiseTransisition: 0.1
     - _noiseTransit: 100
-    - _scale: 512
+    - _scale: 1024
     m_Colors:
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _Tint: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
