@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
     public Camera PlayerCamera;
+    public Inventory PlayerInventory;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,10 @@ public class Player : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+
+
+
+        TryGetComponent(out PlayerInventory);
     }
 
 

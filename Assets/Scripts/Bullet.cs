@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using Deus;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Bullet : MonoBehaviour
 {
     private Rigidbody rb;
     public ObjectPool Pool;
     public int Damage;
+    public float Force;
+    public Transform Source;
     void Start()
     {
         TryGetComponent<Rigidbody>(out rb);
@@ -18,18 +21,12 @@ public class Bullet : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        rb.velocity = Vector3.zero;
-        //Pool.ReturnObject(gameObject);
-
-        if (other.TryGetComponent<Health>(out var health))
-        {
-            health.Damage(Damage);
-        }
+        //if the bullet hits an AI
         
-        if(other.TryGetComponent<Rigidbody>(out var otherRb))
-        {
-            //calculate the force to apply
-            otherRb.AddForceAtPosition(transform.forward * rb.velocity.magnitude, transform.position);
-        }
+        //return the bullet to the pool
+        Pool.ReturnObject(gameObject);
     }
+
+    
+    
 }

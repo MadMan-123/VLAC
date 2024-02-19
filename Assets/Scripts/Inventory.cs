@@ -8,8 +8,9 @@ public class Inventory : MonoBehaviour
 {
     //3 item slots
     public Item[] items = new Item[maxItem];
-    [SerializeField] private int itemIndex = 0;
+    public int ItemIndex = 0;
     [SerializeField] private CinemachineVirtualCamera cameraCache;
+    [SerializeField] private PlayerInputManager playerInputManager;
     public Transform aimPosition; // Position to aim at
     public Transform hipShotPosition; // Position for hip shot
     public float duration = 0.5f; // Speed of lerping to aim position
@@ -23,10 +24,14 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
+        playerInputManager.SetInputIndex("Fire1", 1);
         for(int i = 0; i < maxItem; i++)
         {
-            if(i == itemIndex ) 
-                items[i].gameObject.SetActive(true);
+            if(items[i] == null || i != ItemIndex)
+                continue;
+            
+            items[i].gameObject.SetActive(true);
+            playerInputManager.SetInputIndex("Fire1", 0);
         }
     }
 
@@ -35,36 +40,37 @@ public class Inventory : MonoBehaviour
         if(AimCoroutine != null)
             StopCoroutine(AimCoroutine);
         
-        items[itemIndex].gameObject.SetActive(false);
+        items[ItemIndex].gameObject.SetActive(false);
 
-        if (itemIndex == maxItem - 1)
+        if (ItemIndex == maxItem - 1)
         {
-            itemIndex = 0;
+            ItemIndex = 0;
         }
         else
         {
             //set on the next item
-            itemIndex++;
+            ItemIndex++;
         }
         
         
 
-        items[itemIndex].gameObject.SetActive(true);
+        items[ItemIndex].gameObject.SetActive(true);
 
         
     }
 
     public void UseCurrentItem()
     {
-        
-        items[itemIndex].Use();
+        //null check
+        if (items[ItemIndex] == null) return;
+        items[ItemIndex].Use();
     }
     
     public void AddItem(Item item)
     {
-        if (itemIndex >= maxItem || items[itemIndex] != null) return;
-        items[itemIndex] = item;
-        itemIndex++;
+        if (ItemIndex >= maxItem || items[ItemIndex] != null) return;
+        items[ItemIndex] = item;
+        ItemIndex++;
     }
 
     public void TryAim(bool aim)
@@ -78,12 +84,16 @@ public class Inventory : MonoBehaviour
     private IEnumerator TryAimCurrentItem(bool aim)
     {
         //if aim is true then Aim() else HipShot()
-        
-        
-        
-        if (items[itemIndex].GetType() == typeof(Firearm))
+        //if the aim index of fire1 is 1 then there is no need to aim
+        if (playerInputManager.GetInputAction("Fire1").ActionIndex == 1)
         {
-            Firearm firearm = ((Firearm)items[itemIndex]);
+            yield break;
+        }
+        
+        
+        if (items[ItemIndex].GetType() == typeof(Firearm))
+        {
+            Firearm firearm = ((Firearm)items[ItemIndex]);
             if (aim)
             {
                 Aim(firearm.aimFOV);
@@ -107,7 +117,7 @@ public class Inventory : MonoBehaviour
         //set fov
         LerpFOV(aimFOV);
         //stop hip shot 
-        currentLerpCoroutine = StartCoroutine(LerpToPosition(items[itemIndex].transform, aimPosition, duration));
+        currentLerpCoroutine = StartCoroutine(LerpToPosition(items[ItemIndex].transform, aimPosition, duration));
         
 
     }
@@ -123,7 +133,7 @@ public class Inventory : MonoBehaviour
 
         LerpFOV(hipShotFOV);
         // Start hip-shot animation
-        currentLerpCoroutine = StartCoroutine(LerpToPosition(items[itemIndex].transform, hipShotPosition, duration));
+        currentLerpCoroutine = StartCoroutine(LerpToPosition(items[ItemIndex].transform, hipShotPosition, duration));
 
     }
 
@@ -173,6 +183,25 @@ public class Inventory : MonoBehaviour
         cameraCache.m_Lens.FieldOfView = targetFOV;
     }
 
+
+    public void AddAmmo(AmmoType itemType, int amount)
+    {
+        switch (itemType)
+        {
+            case AmmoType.BuckAndBall:
+                buckAndBall += amount;
+                break;
+            case AmmoType.GrapeShot:
+                grapeShot += amount;
+                break;
+            case AmmoType.ArtilleryShell:
+                artilleryShell += amount;
+                break;
+            case AmmoType.Explosive:
+                explosive += amount;
+                break;
+        }
+    }
     private void OnDrawGizmos()
     {
         //draw the aim positions

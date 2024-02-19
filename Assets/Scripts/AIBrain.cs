@@ -7,30 +7,53 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIBrain : MonoBehaviour
 {
+    [Header("General")] 
+    public Rigidbody Rb;
+    public Health Health;  
+    [Header("AI")]
     public AIType Type;
-    public float AttackRange;
-    public float ChaseRange;
-    public NavMeshAgent Agent;
     public BehaviourStateManager StateManager;
+    public NavMeshAgent Agent;
     public Path path;
+    public Node NextNode;
+    public float AttackRange;
+    public float FieldOfViewAngle = 90f;
+    public float ViewDistance = 70f;
     public double IdleTime { get; set; }
+
     
+    public Vector3 LastKnownPlayerPosition { get; set; }
+
+  
+    
+    //Flags
+    [Header("Flags")]
+    public bool InvestigateFlag { get; set; } = true;
     public bool ShouldPatrolFlag = true;
     public bool PathFlag = true;
     public bool AttackFlag = true;
-    
-    public Node NextNode;
-
-    public float FieldOfViewAngle = 90f;
-    public float ViewDistance = 20f;
-    
+    public bool ChaseFlag = true;
     private void Start()
     {
         gameObject.tag = "AI";
-        Agent = GetComponent<NavMeshAgent>();
+        TryGetComponent(out Rb);
+        TryGetComponent(out Agent);
+        TryGetComponent(out Health);
     }
 
 
+    public IEnumerator ToggleNavMeshAgentOff(float time)
+    {
+        //turn of the destination
+        Agent.destination = transform.position;
+        // Disable isKinematic at the start (optional)
+        yield return new WaitForSeconds(time); // Wait for a short duration before re-enabling NavMeshAgent
+        // Reset velocity to zero
+        Rb.velocity = Vector3.zero;
+        //reset the angular velocity
+        Rb.angularVelocity = Vector3.zero;
+
+    }
     
     
     private void OnDrawGizmos()
@@ -39,16 +62,14 @@ public class AIBrain : MonoBehaviour
         Gizmos.color = Color.red;
         var position = transform.position;
         Gizmos.DrawWireSphere(position, AttackRange);
-        //draw the chase range
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(position, ChaseRange);
+        
         
         //draw the target
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(Agent.destination, 0.5f);
+        Gizmos.color = new Color(15,155,15,1);
+        Gizmos.DrawSphere(Agent.destination, 0.5f);
         
         //draw the field of view
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.grey;
         var forward = transform.forward;
         Gizmos.DrawRay(position, forward * ViewDistance);
         Gizmos.DrawRay(position, Quaternion.Euler(0, FieldOfViewAngle * 0.5f, 0) * forward * ViewDistance);
@@ -60,6 +81,16 @@ public class AIBrain : MonoBehaviour
     {
         Agent.destination = pos;
     }
+
+    public void Alert(Transform Source)
+    {
+        
+        LastKnownPlayerPosition = Source.position;
+        InvestigateFlag = true; //set the investigate flag to true
+        StateManager.ChangeState(AIState.Investigate);
+        
+    }
+
 }
 
 public struct BehaviourStateManager
@@ -69,7 +100,7 @@ public struct BehaviourStateManager
     public Action<AIBrain> ChaseBehaviour;
     public Action IdleBehaviour;
     public Action<AIBrain,List<Node>> PatrolBehaviour;
-    
+    public Action<AIBrain> InvestigateBehaviour;
     public Action<AIBrain,Path> PathFollowBehaviour;
     
     public void ChangeState(AIState newState)
@@ -95,5 +126,6 @@ public enum AIState
     Patrol = 1,
     Chase = 2,
     Attack = 3,
-    Pathing = 4
+    Pathing = 4,
+    Investigate = 5
 }

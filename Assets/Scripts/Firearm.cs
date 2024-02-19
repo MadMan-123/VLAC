@@ -126,6 +126,7 @@ public class Firearm : Weapon
         {
             bl.Pool = bulletPool;
             bl.Damage = Damage;
+            bl.Force = Force;
         }
 
         yield return new WaitForSeconds(0.0005f);
@@ -134,7 +135,34 @@ public class Firearm : Weapon
         {
             tr.enabled = true;
         }
-   
+    
+        //raycast to do the damage to the AI
+        if (Physics.Raycast(firePoint.position, firePoint.forward, out var hit, Range))
+        {
+            rb.velocity = Vector3.zero;
+            //Pool.ReturnObject(gameObject);
+            GameObject hitObject = hit.collider.gameObject;
+            if (hitObject.TryGetComponent<AIBrain>(out var brain))
+            {
+                //add on damage Alert to the AI with the source of the bullet being the player
+                brain.Alert(transform);
+            }
+            if (hitObject.TryGetComponent<Health>(out var health))
+            {
+                health.Damage(Damage);
+            }
+
+            if (hitObject.TryGetComponent<Rigidbody>(out var otherRb))
+            {
+                //calculate the force to apply
+                otherRb.AddForce(transform.forward * Force);
+
+                //if AI Brain, stop it
+                if (brain != null)
+                    StartCoroutine(brain.ToggleNavMeshAgentOff(0.5f));
+            }
+            
+        }
         
         yield return new WaitForSeconds(timeToCollect);
         // Collect the bullet back

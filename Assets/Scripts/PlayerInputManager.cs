@@ -65,12 +65,12 @@ public class PlayerInputManager : MonoBehaviour
 				{
 					
 					//execute actions given 
-					HandleActions(_ActionBuffer.Actions,InputType.Down);
+					HandleActions(_ActionBuffer.Actions,true);
 				}
 				else if (Input.GetButtonUp(_InputString))
 				{
 					//execute actions given 
-					HandleActions(_ActionBuffer.Actions,InputType.Up);
+					HandleActions(_ActionBuffer.Actions,false);
 				}
 			}	
     	}
@@ -94,7 +94,7 @@ public class PlayerInputManager : MonoBehaviour
 			    Debug.LogWarning($"Input action '{inputName}' not found in the input map.");
 		    }
 	    }
-	void HandleActions(List<ActionUD> actionBuffer,InputType type)
+	void HandleActions(List<ActionUD> actionBuffer,bool type)
 	{
 		for(int i = 0; i < actionBuffer.Count; i++)
 		{
@@ -102,12 +102,12 @@ public class PlayerInputManager : MonoBehaviour
 
 			switch (type)
 			{
-				case InputType.Up:
+				case false:
 					if(actionBuffer[i].ActionUp == null) continue;
 					actionBuffer[i].ActionUp?.Invoke();
 
 					break;
-				case InputType.Down: 
+				case true: 
 					if(actionBuffer[i].ActionDown == null) continue;
 					//invoke
 					actionBuffer[i].ActionDown?.Invoke();
@@ -119,12 +119,6 @@ public class PlayerInputManager : MonoBehaviour
 		
 
 	}
-	public enum InputType
-	{
-		Up,
-		Down
-	}
-
 	void AddInput(string inputName, InputAction action)
 	{
 		
@@ -138,6 +132,21 @@ public class PlayerInputManager : MonoBehaviour
 
 		inputMap.Add(inputName, action);
 	
+	}
+
+	public InputAction GetInputAction(string inputName)
+	{
+		// Check if the input action exists in the dictionary
+		if (inputMap.TryGetValue(inputName, out var action))
+		{
+			// Return the input action
+			return action;
+		}
+		else
+		{
+			Debug.LogWarning($"Input action '{inputName}' not found in the input map.");
+			return new InputAction();
+		}
 	}
 
 

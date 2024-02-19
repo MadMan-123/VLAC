@@ -5,19 +5,14 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {	
 	//current health
-	public int CurrentHealth {private set; get;} = 0;
+	[SerializeField] private int CurrentHealth = 0;
 	 
 	//max health
 	public int MaxHealth {private set; get;} = 100;
 
 	
 	public Action OnDeath;
-	public Action OnDamage;
-
-	private void Start()
-	{
-		OnDeath += Death;
-	}
+	
 
 	//Heal
 	public void Heal(int HealBy)
@@ -33,8 +28,6 @@ public class Health : MonoBehaviour
 	{
 		//take the damage 
 		CurrentHealth -= DamageAmmount;
-		//call on damage
-		OnDamage?.Invoke();
 		
 		//call the on death action if needed
 		if(CurrentHealth <= 0)
@@ -45,6 +38,22 @@ public class Health : MonoBehaviour
 
 
 	}
+	
+	public void Damage(int DamageAmmount, Transform Source)
+	{
+		//take the damage 
+		CurrentHealth -= DamageAmmount;
+		//call on damage
+		
+		//call the on death action if needed
+		if(CurrentHealth <= 0)
+		{
+			//call on death		
+			OnDeath?.Invoke();
+		}
+
+	}
+	
 	//SetMax
 	public void SetMaxHealth(int NewMaxHealth)
 	{
@@ -64,9 +73,4 @@ public class Health : MonoBehaviour
 		#endif
 	}
 
-	void Death()
-	{
-		//set object to inactive
-		gameObject.SetActive(false);
-	}
 }

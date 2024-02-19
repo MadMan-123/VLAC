@@ -61,35 +61,31 @@ public class AIManager : MonoBehaviour
         
         SpawnInitialAI();
     }
-
     private void SpawnInitialAI()
     {
-        Node node;
-        ObjectPool pool;
-        GameObject ai;
-        AIBrain brain;
-
         for(int i = 0; i < aiPools.Length; i++)
         { 
-            pool = aiPools[i];   
+            var pool = aiPools[i];   
             if(pool == null)
                 continue;
 
 
             for(int j = 0; j < pool.Count; j++)
             { 
-                ai = pool.GetObject();
+                GameObject ai = pool.GetObject();
                 if(ai == null)
                     break;
 
-                if (ai.TryGetComponent(out brain))
+                if (ai.TryGetComponent(out AIBrain brain))
                 {
+                    ResetHealth(brain);
+
                     // If there is no path, give the AI Patrol behavior
                     if (AIPrefabs[i].path == null)
                     {
                         if (AIPrefabs[i].Nodes.Count == 0)
                             continue;
-                        node = AIPrefabs[i].Nodes[UnityEngine.Random.Range(0, AIPrefabs[i].Nodes.Count)];
+                        var node = AIPrefabs[i].Nodes[UnityEngine.Random.Range(0, AIPrefabs[i].Nodes.Count)];
                         brain.StateManager.PatrolBehaviour += Patrol;
                         SetToNavmesh(ai.transform, node.transform.position);
                         brain.StateManager.ChangeState(AIState.Patrol);
@@ -104,14 +100,18 @@ public class AIManager : MonoBehaviour
                         
                         brain.StateManager.ChangeState(AIState.Pathing);
                     }  
+                    
                 }
+
+
                 ai.SetActive(true);
-                brain.StateManager.ChaseBehaviour = Chase;
+                brain.StateManager.ChaseBehaviour += Chase;
+                brain.StateManager.InvestigateBehaviour += Investigate;
+                
             }
         }
 
     }
-
     bool SetToNavmesh(Transform transform,Vector3 position)
     {
         NavMeshHit hit;
@@ -119,7 +119,6 @@ public class AIManager : MonoBehaviour
         transform.position = hit.position;
         return cache;
     }
-  
     Node GetRandomNode(List<Node> nodes)
     {
         if (nodes == null)
@@ -139,7 +138,6 @@ public class AIManager : MonoBehaviour
 
         return false;
     }
-
     private void Patrol(AIBrain brain,List<Node> nodes)
     {
         if (brain.ShouldPatrolFlag)
@@ -225,9 +223,20 @@ public class AIManager : MonoBehaviour
                 //patrol behaviour
                 StateManager.PathFollowBehaviour?.Invoke(brain,brain.path);
                 break;
+            case AIState.Investigate:
+                if (StateManager.InvestigateBehaviour == null)
+                {
+                    //if it is null, set the state to idle
+                    StateManager.ChangeState(AIState.Idle);
+                    Debug.LogWarning("Investigate Behaviour is null, changing state to idle.");
+
+                    return;
+                }
+                //investigate behaviour
+                StateManager.InvestigateBehaviour?.Invoke(brain);
+                break;
         }
     }
-
     private void IdleBehaviour(AIBrain brain)
     {
         //look around for 10 seconds
@@ -244,8 +253,6 @@ public class AIManager : MonoBehaviour
             brain.StateManager.ChangeState(AIState.Patrol);
         }
     }
-
-    
     private void FollowPath(AIBrain brain, Path path)
     {
         if (brain.PathFlag)
@@ -281,31 +288,51 @@ public class AIManager : MonoBehaviour
         //update the AI behaviours
         for(int i = 0; i < aiBrainsBuffer.Count; i++)
         {
-            UpdateBehaviour(aiBrainsBuffer[i]);
+            //check if the AI is active
+            //check brain is active
+            if(CheckIfBrainIsActive(aiBrainsBuffer[i]))
+                return;
+            
+            //check if the player is in sight
             if (CheckForPlayer(aiBrainsBuffer[i]))
             {
-                
+                aiBrainsBuffer[i].LastKnownPlayerPosition = Player.Instance.transform.position;
             }
+            else if ( aiBrainsBuffer[i].StateManager.CurrentState == AIState.Chase)
+            {
+                aiBrainsBuffer[i].StateManager.ChangeState(AIState.Investigate);
+                aiBrainsBuffer[i].InvestigateFlag = true;
+            }
+            UpdateBehaviour(aiBrainsBuffer[i]);
+
         }
+    }
+    
+    public void ResetHealth(AIBrain brain)
+    {
+        brain.Health.SetCurrentHealth(brain.Health.MaxHealth);
     }
     
     private bool CheckForPlayer(AIBrain brain)
     {
         // Calculate direction to the player
-        Vector3 directionToPlayer = Player.Instance.transform.position - brain.transform.position;
-        float angleToPlayer = Vector3.Angle(directionToPlayer, brain.transform.forward);
+        var transform1 = brain.transform;
+        Vector3 directionToPlayer = Player.Instance.transform.position - transform1.position;
+        float angleToPlayer = Vector3.Angle(directionToPlayer, transform1.forward);
 
         // Check if the player is within the field of view angle
         if (angleToPlayer < brain.FieldOfViewAngle * 0.5f)
         {
             // Raycast to check if there are any obstacles between the AI and the player
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, directionToPlayer, out hit,brain.ViewDistance))
+            if (Physics.Raycast(transform1.position, directionToPlayer, out hit,brain.ViewDistance))
             {
+
                 if (hit.collider.CompareTag("Player"))
                 {
                     // Player is in sight
                     brain.StateManager.ChangeState(AIState.Chase);
+                    
                     return true;
                 }
             }
@@ -317,14 +344,75 @@ public class AIManager : MonoBehaviour
     
     void Chase(AIBrain brain)
     {
+        //check brain is active
+        if(CheckIfBrainIsActive(brain))
+            return;
         // Set the destination to the player's position
         brain.SetDestination(Player.Instance.transform.position);
+      
         
-        if(brain.Agent.remainingDistance < 1.5f)
+        if(brain.Agent.remainingDistance < brain.AttackRange)
         {
             // Attack the player
             brain.StateManager.ChangeState(AIState.Attack);
         }
+    }
+    
+    void Investigate(AIBrain brain)
+    {
+         //check brain is active
+        if(CheckIfBrainIsActive(brain))
+            return;
+        if(brain.InvestigateFlag)
+        {
+            // Set the destination to the last known position of the player
+            brain.SetDestination(brain.LastKnownPlayerPosition);
+            brain.InvestigateFlag = false;
+            brain.IdleTime = 0;
+        }
+
+        if (brain.Agent.remainingDistance < 1.5f)
+        {
+            //look around for 5 seconds
+            //turn the AI around
+            brain.transform.Rotate(0, 1, 0);    
+            //idle for 5 seconds
+            if (brain.IdleTime < 5)
+            {
+                brain.IdleTime += Time.deltaTime;
+            }
+            else
+            {
+                //reset the idle time
+                brain.IdleTime = 0;
+                
+                //if there isnt a path, set the state to patrol
+                if (brain.path)
+                {
+                    //set the state to patrol
+                    brain.StateManager.ChangeState(AIState.Pathing);
+                }
+                else
+                {
+                    brain.StateManager.ChangeState(AIState.Patrol);
+                }
+
+            }
+        }
+    }
+    
+    void ReturnToPool(AIBrain brain)
+    {
+        //return the AI to the pool
+        brain.gameObject.SetActive(false);
+        //reset the AI
+        brain.StateManager.ChangeState(AIState.Idle);
+        
+    }
+    
+    bool CheckIfBrainIsActive(AIBrain brain)
+    {
+        return brain.gameObject.activeSelf;
     }
 }
 
